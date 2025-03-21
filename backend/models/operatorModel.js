@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const OperatorSchema = new mongoose.Schema({
   company_name: String,
+  name: String,
   email: { type: String, unique: true },
   phone: String,
   password: String,
