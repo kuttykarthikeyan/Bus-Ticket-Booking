@@ -1,2 +1,5 @@
 backend/.env
 backend/node_modules
+backend/logs
+backend/tests
+backend/jest.config.js

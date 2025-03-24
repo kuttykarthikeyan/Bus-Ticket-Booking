@@ -11,4 +11,5 @@ const CancellationSchema = new mongoose.Schema({
   cancellation_reason: String,
 }, { timestamps: true });
 
-export const Cancellation = mongoose.model("Cancellation", CancellationSchema);
+const Cancellation = mongoose.model("Cancellation", CancellationSchema);
+export default Cancellation;

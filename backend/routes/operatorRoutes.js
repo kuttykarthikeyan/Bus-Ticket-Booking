@@ -1,13 +1,13 @@
-import express from 'express';
-import { registerOperator } from '../controllers/operatorController.js';
-import { loginOperator } from '../controllers/operatorController.js';
-import {operatorAuthMiddleware} from '../middlewares/operatorAuthMiddleware.js';
+import express from "express";
+import OperatorController from "../controllers/operatorController.js";
+import { operatorAuthMiddleware } from "../middlewares/operatorAuthMiddleware.js";
+
 const router = express.Router();
-router.post('/register', registerOperator);
-router.post('/login', loginOperator);
-router.get('/profile',operatorAuthMiddleware, (req, res) => {
-    res.send('Operator Profile');
+
+router.post("/register", OperatorController.register);
+router.post("/login", OperatorController.login);
+router.get("/profile", operatorAuthMiddleware, (req, res) => {
+  res.status(200).json({ success: true, message: "Operator Profile", operator: req.operator });
 });
+
 export default router;
-
-

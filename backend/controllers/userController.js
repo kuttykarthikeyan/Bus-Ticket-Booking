@@ -1,12 +1,12 @@
-import OperatorAuthService from "../services/authServices/operatorService.js";
-import Operator from "../models/operatorModel.js";
+import UserAuthService from "../services/authServices/userService.js";
+import User from "../models/userModel.js";
 
-const operatorAuthService = new OperatorAuthService(Operator);
+const userAuthService = new UserAuthService(User);
 
-const operatorController = {
+const userController = {
   async register(req, res) {
     try {
-      const result = await operatorAuthService.register(req.body);
+      const result = await userAuthService.register(req.body);
       return res.status(result.status).json(result);
     } catch (error) {
       return res.status(500).json({ success: false, message: "Server error" });
@@ -16,7 +16,7 @@ const operatorController = {
   async login(req, res) {
     try {
       const { email, password } = req.body;
-      const result = await operatorAuthService.login(email, password);
+      const result = await userAuthService.login(email, password);
       return res.status(result.status).json(result);
     } catch (error) {
       return res.status(500).json({ success: false, message: "Server error" });
@@ -24,4 +24,4 @@ const operatorController = {
   }
 };
 
-export default operatorController;
+export default userController;

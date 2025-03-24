@@ -13,4 +13,6 @@ const OperatorSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
-export const Operator = mongoose.model("Operator", OperatorSchema);
+
+const Operator = mongoose.model("Operator", OperatorSchema);
+export default Operator;

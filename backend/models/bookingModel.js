@@ -15,5 +15,5 @@ const BookingSchema = new mongoose.Schema({
     default: "confirmed",
   },
 }, { timestamps: true });
-
-export const Booking = mongoose.model("Booking", BookingSchema);
+const Booking = mongoose.model("Booking", BookingSchema);
+export default Booking;

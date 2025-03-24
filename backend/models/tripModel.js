@@ -10,4 +10,5 @@ const TripSchema = new mongoose.Schema({
   available_seats: Number,
 }, { timestamps: true });
 
-export const Trip = mongoose.model("Trip", TripSchema);
+const Trip = mongoose.model("Trip", TripSchema);
+export default Trip;
