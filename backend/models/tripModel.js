@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const TripSchema = new mongoose.Schema({
+  operatorId: { type: mongoose.Schema.Types.ObjectId, ref: 'Operator' },
   bus_id: { type: mongoose.Schema.Types.ObjectId, ref: "Bus" },
   source: String,
   destination: String,

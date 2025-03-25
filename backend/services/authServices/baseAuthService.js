@@ -8,23 +8,17 @@ class BaseAuthService {
 
   async register(data) {
     const error = this.validateData(data);
-    if (error) {
-      return { status: 400, success: false, message: error };
-    }
+    if (error) return { status: 400, success: false, message: error };
 
-    if (await this.model.findOne({ email: data.email })) {
+    const existingUser = await this.model.findOne({ email: data.email });
+    if (existingUser) {
       return { status: 400, success: false, message: `${this.role} already exists` };
     }
 
     data.password = await hashPassword(data.password);
-    const entity = this.createInstance(data);
-    await entity.save();
+    await this.model.create(data);
 
-    return { 
-      status: 201, 
-      success: true, 
-      message: `${this.role} registered successfully` 
-    };
+    return { status: 201, success: true, message: `${this.role} registered successfully` };
   }
 
   async login(email, password) {
@@ -37,12 +31,17 @@ class BaseAuthService {
       return { status: 401, success: false, message: "Invalid email or password" };
     }
 
-    return { 
-      status: 200, 
-      success: true, 
-      message: "Login successful", 
-      token: generateToken(entity._id, this.role) 
+    return {
+      status: 200,
+      success: true,
+      message: "Login successful",
+      token: generateToken(entity._id, this.role),
     };
+  }
+
+  validateData(data) {
+    if (!data.email || !data.password) return "Email and password are required";
+    return null;
   }
 }
 

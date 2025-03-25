@@ -13,13 +13,13 @@ class OperatorService extends BaseAuthService {
   }
 
   createInstance(data) {
-    return new Operator({ 
+    return { 
       company_name: data.company_name, 
       email: data.email, 
       phone: data.phone, 
       password: data.password, 
       verification_status: "pending" 
-    });
+    };
   }
 }
 

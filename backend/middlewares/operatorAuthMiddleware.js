@@ -1,21 +1,28 @@
 import { verifyToken } from "../utils/authUtils.js";
 
+
 export const operatorAuthMiddleware = async (req, res, next) => {
     try {
-        if (!req.headers.authorization || !req.headers.authorization.startsWith("Bearer ")) {
-            return res.status(401).json({ message: "Access Denied: No token provided" });
+        const authHeader = req.headers.authorization;
+        
+        if (!authHeader || !authHeader.startsWith("Bearer ")) {
+            return res.status(401).json({ success: false, message: "Access Denied: No token provided" });
         }
 
-        const token = req.headers.authorization.split(" ")[1];
+        const token = authHeader.split(" ")[1];
+        const decoded = await verifyToken(token); 
 
-        const decoded = await verifyToken(token);
-        console.log("Decoded Token:", decoded);
+        if (!decoded || !decoded.id) {
+            return res.status(401).json({ success: false, message: "Invalid token: Operator ID missing" });
+        }
 
-        req.user = decoded;
-
+        req.user = { operatorId: decoded.id }; 
+        console.log("Operator ID:", req.user.operatorId);
         next();
+
     } catch (error) {
         console.error("Error in operatorAuthMiddleware:", error);
-        return res.status(401).json({ message: "Invalid Token", error: error.message });
+        return res.status(401).json({ success: false, message: "Invalid Token", error: error.message });
     }
 };
+
