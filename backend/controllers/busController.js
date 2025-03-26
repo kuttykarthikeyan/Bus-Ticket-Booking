@@ -1,8 +1,8 @@
-import OperatorBusService from "../../services/busServices/operatorBusSerive.js";
+import OperatorBusService from "../services/busServices/operatorBusSerive.js";
 
 const operatorBusService = new OperatorBusService();
 
-const operatorBusController = {
+const busController = {
   async createBus(req, res) {
     try {
       const operatorId = req.user.operatorId;
@@ -33,4 +33,4 @@ const operatorBusController = {
   }
 };
 
-export default operatorBusController;
+export default busController;

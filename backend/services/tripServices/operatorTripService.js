@@ -1,6 +1,6 @@
 import BaseTripService from "./baseTripService.js";
 import Trip from "../../models/tripModel.js";
-import Bus from "../../models/busModel.js";
+
 
 class OperatorTripService extends BaseTripService {
     
@@ -35,6 +35,16 @@ class OperatorTripService extends BaseTripService {
             return { status: 500, success: false, message: "Error deleting trip", error: error.message };
         }
     }
+    async cancelTrip(tripId) {
+        try {
+            const cancelledTrip = await Trip.findByIdAndUpdate(tripId, { isCancelled: true }, { new: true });
+            if (!cancelledTrip) return { status: 404, success: false, message: "Trip not found" };
+            return { status: 200, success: true, message: "Trip cancelled successfully", trip: cancelledTrip };
+        } catch (error) {
+            return { status: 500, success: false, message: "Error cancelling trip", error: error.message };
+        }
+    }
+  
 
     
 }

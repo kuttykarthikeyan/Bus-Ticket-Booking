@@ -1,18 +1,15 @@
+import mongoose from "mongoose";
 
-import mongoose from 'mongoose';
-
-const busSchema = new mongoose.Schema(
+const BusSchema = new mongoose.Schema(
   {
-    operatorId: { type: mongoose.Schema.Types.ObjectId, ref: 'Operator' },
-    busNumber: String,
-    busType: String,
-    totalSeats: Number,
-    amenities: [String],
+    operatorId: { type: mongoose.Schema.Types.ObjectId, ref: "Operator", required: true },
+    busNumber: { type: String, required: true, unique: true },
+    busType: { type: String, required: true },
+    totalSeats: { type: Number, required: true },
+    amenities: [{ type: String }],
   },
-  {
-    timestamps: true, 
-  }
+  { timestamps: true }
 );
 
-const Bus = mongoose.model('Bus', busSchema);
+const Bus = mongoose.model("Bus", BusSchema);
 export default Bus;
