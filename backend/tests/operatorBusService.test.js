@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Bus from "../models/busModel.js";
-import OperatorBusService from "../services/busServices/operatorBusSerive.js";
+import OperatorBusService from "../services/busService.js";
 
 jest.mock("../models/busModel.js");
 

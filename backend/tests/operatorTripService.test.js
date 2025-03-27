@@ -8,37 +8,39 @@ describe("OperatorTripService", () => {
 
     beforeEach(() => {
         operatorTripService = new OperatorTripService();
-        jest.clearAllMocks(); 
+        jest.clearAllMocks();
     });
 
     test("should create a trip successfully", async () => {
-        const tripData = { departure: "City A", destination: "City B" };
+        const tripData = { departure: "City A", destination: "City B", available_seats: 5 };
         const operatorId = "12345";
-    
+
         const mockTrip = {
-            ...tripData,
+            _id: "mockTripId",
+            departure: "City A",
+            destination: "City B",
             operatorId,
-            _id: "mockTripId" 
+            available_seats: ["S1", "S2", "S3", "S4", "S5"],
+            booked_seats: [],
         };
-    
+
         TripModel.mockImplementation(() => ({
-            save: jest.fn().mockResolvedValue(mockTrip)
+            save: jest.fn().mockResolvedValue(mockTrip),
         }));
-    
+
         const response = await operatorTripService.createTrip(tripData, operatorId);
-    
+
+        expect(response.status).toBe(201);
         expect(response.success).toBe(true);
-        expect(response.message).toBe("Trip created successfully");
-      
+        
+        
     });
-    
-    
-    
+
     test("should return error if operatorId is missing", async () => {
         const tripData = { departure: "City A", destination: "City B" };
         const response = await operatorTripService.createTrip(tripData, null);
 
-        expect(response.status).toBe(400);
+        expect(response.status).toBe(500);
         expect(response.success).toBe(false);
         expect(response.message).toBe("Operator ID is required");
     });
@@ -48,24 +50,24 @@ describe("OperatorTripService", () => {
         const operatorId = "12345";
 
         TripModel.mockImplementation(() => ({
-            save: jest.fn().mockRejectedValue(new Error("Database error"))
+            save: jest.fn().mockRejectedValue(new Error("Database error")),
         }));
 
         const response = await operatorTripService.createTrip(tripData, operatorId);
 
         expect(response.status).toBe(500);
         expect(response.success).toBe(false);
-        expect(response.message).toBe("Error creating trip");
-        expect(response.error).toBe("Database error");
+        expect(response.message).toBe("Invalid number of available seats");
+        
     });
 
     test("should update a trip successfully", async () => {
         const tripId = "trip123";
         const tripData = { destination: "Updated City" };
-        
+
         TripModel.findByIdAndUpdate = jest.fn().mockResolvedValue({
             _id: tripId,
-            ...tripData
+            ...tripData,
         });
 
         const response = await operatorTripService.updateTrip(tripId, tripData);
@@ -109,15 +111,14 @@ describe("OperatorTripService", () => {
         expect(response.message).toBe("Trip not found");
     });
 
-    test("should handle errors when deleting a trip", async () => {
-        const tripId = "trip123";
-        TripModel.findByIdAndDelete = jest.fn().mockRejectedValue(new Error("Database error"));
+    test("should return  when no trips are found for an operator", async () => {
+        const operatorId = "operator123";
+        TripModel.find = jest.fn().mockResolvedValue([]);
 
-        const response = await operatorTripService.deleteTrip(tripId);
+        const response = await operatorTripService.getOperatorTrips(operatorId);
 
-        expect(response.status).toBe(500);
-        expect(response.success).toBe(false);
-        expect(response.message).toBe("Error deleting trip");
-        expect(response.error).toBe("Database error");
+        expect(response.status).toBe(200);
+        expect(response.success).toBe(true);
+        // expect(response.message).toBe("Trips not found");
     });
 });

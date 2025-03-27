@@ -4,7 +4,7 @@ const BookingSchema = new mongoose.Schema(
   {
     user_id: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     trip_id: { type: mongoose.Schema.Types.ObjectId, ref: "Trip", required: true },
-    seat_numbers: [{ type: Number, required: true }],
+    seat_numbers: [{ type: Array, required: true }],
     payment_status: {
       type: String,
       enum: ["pending", "paid", "failed"],

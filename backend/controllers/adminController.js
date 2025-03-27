@@ -1,4 +1,4 @@
-import AdminService from "../services/adminServices/adminService.js";
+import AdminService from "../services/adminService.js";
 
 const adminService = new AdminService();
 const AdminController={

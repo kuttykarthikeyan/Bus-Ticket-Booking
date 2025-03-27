@@ -23,7 +23,8 @@ router.delete("/bus/:busId", operatorAuthMiddleware, BusController.deleteBus);
 router.post("/trip", operatorAuthMiddleware, TripController.createTrip);
 router.put("/trip/:tripId", operatorAuthMiddleware, TripController.updateTrip);
 router.delete("/trip/:tripId", operatorAuthMiddleware, TripController.deleteTrip);
-router.get("/trip", operatorAuthMiddleware, TripController.getTrips);
+router.get("/trip", operatorAuthMiddleware, TripController.getAllTrips);
+router.get("/trip/:tripId", operatorAuthMiddleware, TripController.getTripById);
 
 // Export Router
 export default router;

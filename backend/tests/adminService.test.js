@@ -1,4 +1,4 @@
-import AdminService from "../services/adminServices/adminService.js";
+import AdminService from "../services/adminService.js";
 import User from "../models/userModel.js";
 import Trip from "../models/tripModel.js";
 
@@ -91,6 +91,6 @@ describe("AdminService Unit Tests", () => {
 
         expect(response.status).toBe(500);
         expect(response.success).toBe(false);
-        expect(response.message).toBe("Error retrieving trips");
+        expect(response.message).toBe("Error in getting Operator Trips ");
     });
 });

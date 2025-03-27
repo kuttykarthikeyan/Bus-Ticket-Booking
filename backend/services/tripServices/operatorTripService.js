@@ -2,19 +2,46 @@ import BaseTripService from "./baseTripService.js";
 import Trip from "../../models/tripModel.js";
 
 
-class OperatorTripService extends BaseTripService {
+
+class OperatorTripService  {
+ constructor() {
+        this.baseTripService = new BaseTripService();
+    }
+    async getTripById(tripId) {
+        return this.baseTripService.getTripById(tripId);
+    }
+    async getAllTrips() {
+        return this.baseTripService.getAllTrips();
+    }
     
     async createTrip(tripData, operatorId) {
-        if (!operatorId) return { status: 400, success: false, message: "Operator ID is required" };
-        
+        if (!operatorId) {
+            return { status: 500, success: false, message: "Operator ID is required" };
+        }
+    
         try {
-            const newTrip = new Trip({ ...tripData, operatorId });
+            const availableSeatsCount = Number(tripData.available_seats);
+            if (!availableSeatsCount || availableSeatsCount <= 0) {
+                return { status: 500, success: false, message: "Invalid number of available seats" };
+            }
+    
+            const seats = Array.from({ length: availableSeatsCount }, (_, i) => `S${i + 1}`);
+    
+            const newTrip = new Trip({ 
+                ...tripData, 
+                operatorId, 
+                available_seats: seats, 
+                booked_seats: [], 
+            });
+    
             await newTrip.save();
+    
             return { status: 201, success: true, message: "Trip created successfully", trip: newTrip };
         } catch (error) {
             return { status: 500, success: false, message: "Error creating trip", error: error.message };
         }
     }
+    
 
     async updateTrip(tripId, tripData) {
         try {
@@ -44,7 +71,20 @@ class OperatorTripService extends BaseTripService {
             return { status: 500, success: false, message: "Error cancelling trip", error: error.message };
         }
     }
-  
+    async getOperatorTrips(operatorId) {
+        try{
+            const trips = await Trip.find({operatorId});
+            if(!trips){
+                return {status:400,success:false,message:"Trips not found"};
+            }
+            return {status:200,success:true,message:"Trips retrieved successfully",trips};
+        }
+         catch(error)
+         {
+            return{status: 500,success:false,message:"Error in getting Operator Trips ",error:error.message}
+         }
+         
+        }
 
     
 }

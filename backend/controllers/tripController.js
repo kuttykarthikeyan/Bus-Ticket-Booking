@@ -1,12 +1,12 @@
-import AdminService from "../services/adminServices/adminService.js";
-
+import AdminService from "../services/adminService.js";
+import OperatorTripService from "../services/tripServices/operatorTripService.js";
 const adminService = new AdminService();
-
+const operatorTripService = new OperatorTripService();
 const TripController = {
     
   async createTrip(req, res) {
     try {
-      const operatorId = req.user.operatorId;
+      const operatorId = req.user._id;
       const tripData = req.body;
       const result = await operatorTripService.createTrip(tripData, operatorId);
       return res.status(result.status).json(result);
@@ -63,15 +63,7 @@ const TripController = {
             return res.status(500).json({ success: false, message: "Error cancelling trip", error: error.message });
         }
     }
-    ,
-    async getTrips(req, res) {
-      try {
-        const result = await operatorTripService.getAllTrips();
-        return res.status(result.status).json(result);
-      } catch (error) {
-        return res.status(500).json({ success: false, message: "Error getting trips", error: error.message });
-      }
-    },
+    
 
 };
 

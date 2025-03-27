@@ -1,5 +1,5 @@
-import Bus from "../../models/busModel.js";
-class OperatorBusService  
+import Bus from "../models/busModel.js";
+class BusService  
 {
     async createBus(busData, operatorId) {
         if (!operatorId) return { status: 400, success: false, message: "Operator ID is required" };
@@ -33,4 +33,4 @@ class OperatorBusService
         }
     }
 }
-export default OperatorBusService;
+export default BusService;

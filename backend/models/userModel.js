@@ -9,6 +9,8 @@ const UserSchema = new mongoose.Schema(
     role: { type: String, enum: ["user", "admin"], required: true },
     status: { type: String, enum: ["active", "inactive"], default: "active" },
     isBlocked: { type: Boolean, default: false },
+    booked_Trips:{type: Array, default: []},
+    cancelled_trips:{type:Array, default:[]}
   },
   { timestamps: true }
 );

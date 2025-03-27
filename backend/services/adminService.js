@@ -1,7 +1,6 @@
-import OperatorTripService from "../tripServices/operatorTripService.js";
-import User from "../../models/userModel.js";
-import Operator from "../../models/operatorModel.js";
-import Trip from "../../models/tripModel.js";
+import OperatorTripService from "../services/tripServices/operatorTripService.js";
+import User from "../models/userModel.js";
+import Operator from "../models/operatorModel.js";
 
 class AdminService {
     constructor() {
@@ -31,12 +30,7 @@ class AdminService {
     }
     async getOperatorTrips(operatorId) {
         
-        try {
-            const trips = await Trip.find({ operatorId });
-            return { status: 200, success: true, message: "Trips retrieved successfully", trips };
-        } catch (error) {
-            return { status: 500, success: false, message: "Error retrieving trips", error: error.message };
-        }
+        return await this.operatorTripService.getOperatorTrips(operatorId);
     
 }
     async getAllUsers() {

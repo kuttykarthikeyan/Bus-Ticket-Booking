@@ -1,3 +1,4 @@
+import Operator from "../models/operatorModel.js";
 import { verifyToken } from "../utils/authUtils.js";
 
 
@@ -11,13 +12,12 @@ export const operatorAuthMiddleware = async (req, res, next) => {
 
         const token = authHeader.split(" ")[1];
         const decoded = await verifyToken(token); 
-
+        const user = await Operator.findById(decoded.id).select("-password"); 
         if (!decoded || !decoded.id) {
             return res.status(401).json({ success: false, message: "Invalid token: Operator ID missing" });
         }
 
-        req.user = { operatorId: decoded.id }; 
-        console.log("Operator ID:", req.user.operatorId);
+        req.user = user;
         next();
 
     } catch (error) {

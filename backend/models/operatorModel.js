@@ -13,6 +13,7 @@ const OperatorSchema = new mongoose.Schema(
       default: "pending",
     },
     isBlocked: { type: Boolean, default: false },
+    trips: { type: Array, default: [] },
   },
   { timestamps: true }
 );
