@@ -3,24 +3,37 @@ import User from "../models/userModel.js";
 
 const authMiddleware = async (req, res, next) => {
     try {
-        const token = req.headers.authorization?.split(" ")[1]; 
+        const token = req.headers.authorization?.split(" ")[1];
 
         if (!token) {
-            return res.status(401).json({ success: false, message: "Unauthorized: No token provided" });
+            return res.status(401).json({
+                success: false,
+                status: 401,
+                message: "Unauthorized: No token provided"
+            });
         }
 
-        const decoded = jwt.verify(token,"mysecretkey" ); 
-        const user = await User.findById(decoded.id).select("-password"); 
+        const decoded = jwt.verify(token, "mysecretkey");
+        const user = await User.findById(decoded.id).select("-password");
 
         if (!user) {
-            return res.status(401).json({ success: false, message: "Unauthorized: User not found" });
+            return res.status(401).json({
+                success: false,
+                status: 401,
+                message: "Unauthorized: User not found"
+            });
         }
 
-        req.user = user; 
-        
+        req.user = user;
         next();
     } catch (error) {
-        return res.status(401).json({ success: false, message: "Unauthorized: Invalid token" });
+        console.error("Error in authMiddleware:", error);
+        return res.status(500).json({
+            success: false,
+            status: 500,
+            message: "Internal Server Error: Authentication failed",
+            error: error.message
+        });
     }
 };
 

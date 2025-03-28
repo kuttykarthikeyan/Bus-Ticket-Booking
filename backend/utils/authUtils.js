@@ -14,5 +14,15 @@ const verifyToken = (token) => {
         throw new Error("Invalid token");
     }
 };
+const handleError = (res, error, message) => {
+    console.error(`${message}:`, error);
+    return res.status(500).json({
+        success: false,
+        status: 500,
+        message: message,
+        error: error.message
+    });
+};
 
-export { hashPassword, comparePassword, generateToken, verifyToken };
+
+export { hashPassword, comparePassword, generateToken, verifyToken,handleError };

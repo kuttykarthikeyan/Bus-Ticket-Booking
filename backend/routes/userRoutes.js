@@ -11,6 +11,7 @@ const router = express.Router();
 router.post("/register", authController.userRegister);
 router.post("/login", authController.userLogin);
 router.post("/book", authMiddleware,BookingController.bookTrip);
+router.post("/cancelBook",authMiddleware,BookingController.cancelBooking)
 router.get("/profile", authMiddleware, ProfileController.getUserProfile);
 router.put("/profile", authMiddleware, ProfileController.updateUserProfile);
 

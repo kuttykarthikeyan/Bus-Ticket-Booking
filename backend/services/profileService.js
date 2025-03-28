@@ -5,7 +5,7 @@ class ProfileService {
         try{
             const user = await User.findById(userId);
             if(!user){
-                return { status: 404, success: false, message: "User not found" };
+                return { status: 400, success: false, message: "User not found" };
             }
             return { status: 200, success: true, message: "User profile retrieved successfully", user };
         }

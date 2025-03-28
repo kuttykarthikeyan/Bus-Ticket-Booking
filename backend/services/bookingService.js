@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import Booking from "../models/bookingModel.js";
 import User from "../models/userModel.js";
 import Trip from "../models/tripModel.js";
@@ -7,12 +6,13 @@ class BookingService {
     async createBooking(user_id, trip_id, seat_numbers) {
         try {
             const trip = await Trip.findById(trip_id);
-            if (!trip) throw new Error("Trip not found");
-            if (trip.isCancelled) throw new Error("Trip is cancelled");
+            if (!trip) return { status: 400, success: false, message: "Trip not found", data: null };
+
+            if (trip.isCancelled) return { status: 400, success: false, message: "Trip is cancelled", data: null };
 
             const unavailableSeats = seat_numbers.filter(seat => trip.booked_seats.includes(seat));
             if (unavailableSeats.length > 0) {
-                throw new Error(`Seats unavailable: ${unavailableSeats.join(", ")}`);
+                return { status: 400, success: false, message: `Seats unavailable: ${unavailableSeats.join(", ")}`, data: null };
             }
 
             const booking = await Booking.create({
@@ -34,14 +34,14 @@ class BookingService {
             await User.findByIdAndUpdate(user_id, { $push: { booked_Trips: trip_id } });
 
             return {
+                status: 200,
                 success: true,
                 message: "Booking successful",
-                booking,
-                seats: seat_numbers,
+                data: { booking, seats: seat_numbers },
             };
         } catch (error) {
             console.error("Booking creation failed:", error);
-            return { success: false, message: error.message || "Booking failed" };
+            return { status: 500, success: false, message: "Booking failed", error: error.message };
         }
     }
 
@@ -49,15 +49,19 @@ class BookingService {
         try {
             const booking = await Booking.findById(booking_id).populate("trip_id");
 
-            if (!booking) throw new Error("Booking not found");
-            if (booking.user_id.toString() !== user_id.toString()) throw new Error("Unauthorized cancellation");
-            if (booking.booking_status === "cancelled") throw new Error("Booking already cancelled");
+            if (!booking) return { status: 400, success: false, message: "Booking not found", data: null };
+            if (booking.user_id.toString() !== user_id.toString()) {
+                return { status: 403, success: false, message: "Unauthorized cancellation", data: null };
+            }
+            if (booking.booking_status === "cancelled") {
+                return { status: 400, success: false, message: "Booking already cancelled", data: null };
+            }
 
             const trip = booking.trip_id;
             const cancellationDeadline = new Date(trip.departure_time);
             cancellationDeadline.setHours(cancellationDeadline.getHours() - 24);
             if (new Date() >= cancellationDeadline) {
-                throw new Error("Cancellation not allowed within 24 hours of trip");
+                return { status: 400, success: false, message: "Cancellation not allowed within 24 hours of trip", data: null };
             }
 
             await Trip.updateOne(
@@ -76,10 +80,10 @@ class BookingService {
 
             console.log("Booking cancelled:", { bookingId: booking_id, userId: user_id });
 
-            return { success: true, message: "Booking cancelled successfully", booking };
+            return { status: 200, success: true, message: "Booking cancelled successfully", data: { booking } };
         } catch (error) {
             console.error("Booking cancellation failed:", error);
-            return { success: false, message: error.message || "Cancellation failed" };
+            return { status: 500, success: false, message: "Cancellation failed", error: error.message };
         }
     }
 }
