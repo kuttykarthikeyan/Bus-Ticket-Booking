@@ -16,7 +16,7 @@ class BookingService {
             if (unavailableSeats.length > 0) {
                 throw new Error(`Seats unavailable: ${unavailableSeats.join(", ")}`);
             }
-    
+            
             const booking = await Booking.create(
                 [
                     {

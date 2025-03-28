@@ -1,6 +1,2 @@
-backend/.env
-backend/node_modules
-backend/logs
 
-backend/jest.config.js
-backend/.babelrc
+backend/node_modules

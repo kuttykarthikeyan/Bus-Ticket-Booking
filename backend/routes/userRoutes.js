@@ -13,7 +13,7 @@ router.post("/login", authController.userLogin);
 router.post("/book", authMiddleware,BookingController.bookTrip);
 router.get("/profile", authMiddleware, ProfileController.getUserProfile);
 router.put("/profile", authMiddleware, ProfileController.updateUserProfile);
-router.post("/book",authMiddleware,BookingController.bookTrip);
+
 
 
 
