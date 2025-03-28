@@ -3,14 +3,14 @@ import { operatorAuthMiddleware } from "../middlewares/operatorAuthMiddleware.js
 import authController from "../controllers/authController.js";
 import BusController from "../controllers/busController.js";
 import TripController from "../controllers/tripController.js";
+import ProfileService from "../services/profileService.js";
+import ProfileController from "../controllers/profileController.js";
 
 const router = express.Router();
 
 router.post("/register", authController.operatorRegister);
 router.post("/login", authController.operatorLogin);
-router.get("/profile", operatorAuthMiddleware, (req, res) => {
-  res.status(200).json({ success: true, message: "Operator Profile", operator: req.operator });
-});
+router.get("/profile", operatorAuthMiddleware, ProfileController.getOperatorProfile);
 
 router.post("/bus", operatorAuthMiddleware, BusController.createBus);
 router.put("/bus/:busId", operatorAuthMiddleware, BusController.updateBus);

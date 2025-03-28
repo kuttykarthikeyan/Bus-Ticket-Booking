@@ -1,5 +1,5 @@
 
 backend/node_modules
 backend/logs
-/backend/.babelrc
+backend/.babelrc
 backend/.env

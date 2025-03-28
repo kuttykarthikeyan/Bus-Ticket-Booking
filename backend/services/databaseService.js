@@ -12,10 +12,7 @@ class DatabaseService {
   static async connect() {
     try {
       logger.info("Connecting to MongoDB...");
-      await mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/bus-booking", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
+      await mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/bus-booking");
       logger.info("MongoDB Connected");
     } catch (error) {
       logger.error(`MongoDB Connection Failed: ${error.message}`);

@@ -16,22 +16,33 @@ class OperatorTripService  {
     
     async createTrip(tripData, operatorId) {
         if (!operatorId) {
-            return { status: 500, success: false, message: "Operator ID is required" };
+            return { status: 400, success: false, message: "Operator ID is required" };
         }
     
         try {
-            const availableSeatsCount = Number(tripData.available_seats);
-            if (!availableSeatsCount || availableSeatsCount <= 0) {
-                return { status: 500, success: false, message: "Invalid number of available seats" };
+            const { total_seats, source, destination, departure_time, arrival_time, price, bus_id } = tripData;
+    
+            if (!total_seats || total_seats <= 0) {
+                return { status: 400, success: false, message: "Total seats must be greater than 0" };
             }
     
-            const seats = Array.from({ length: availableSeatsCount }, (_, i) => `S${i + 1}`);
+            if (!source || !destination || !departure_time || !arrival_time || !price || !bus_id) {
+                return { status: 400, success: false, message: "All fields are required" };
+            }
     
-            const newTrip = new Trip({ 
-                ...tripData, 
-                operatorId, 
-                available_seats: seats, 
-                booked_seats: [], 
+            const seats = Array.from({ length: total_seats }, (_, i) => `S${i + 1}`);
+    
+            const newTrip = new Trip({
+                operatorId,
+                bus_id,
+                source: source.trim(),
+                destination: destination.trim(),
+                departure_time,
+                arrival_time,
+                price,
+                total_seats,
+                available_seats: seats
+              
             });
     
             await newTrip.save();
