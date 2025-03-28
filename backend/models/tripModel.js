@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const TripSchema = new mongoose.Schema(
   {
     operatorId: { type: mongoose.Schema.Types.ObjectId, ref: "Operator", required: true },
@@ -8,9 +9,17 @@ const TripSchema = new mongoose.Schema(
     departure_time: { type: Date, required: true },
     arrival_time: { type: Date, required: true },
     price: { type: Number, required: true },
-    
+
     available_seats: { type: [String], required: true }, 
     booked_seats: { type: [String], default: [] }, 
+
+    seat_locked: [
+      {
+        seat_number: { type: String, required: true },
+        locked_by: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+        locked_at: { type: Date, default: Date.now },
+      },
+    ],
 
     isCancelled: { type: Boolean, default: false },
   },
