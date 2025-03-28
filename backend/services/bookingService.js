@@ -11,12 +11,12 @@ class BookingService {
             const trip = await Trip.findById(trip_id).session(session).exec();
             if (!trip) throw new Error("Trip not found");
             if (trip.isCancelled) throw new Error("Trip is cancelled");
-
+    
             const unavailableSeats = seat_numbers.filter(seat => trip.booked_seats.includes(seat));
             if (unavailableSeats.length > 0) {
                 throw new Error(`Seats unavailable: ${unavailableSeats.join(", ")}`);
             }
-
+    
             const booking = await Booking.create(
                 [
                     {
@@ -29,7 +29,7 @@ class BookingService {
                 ],
                 { session }
             );
-
+    
             await Trip.updateOne(
                 { _id: trip_id },
                 {
@@ -38,16 +38,12 @@ class BookingService {
                 },
                 { session }
             );
-
-            await User.findByIdAndUpdate(
-                user_id,
-                { $push: { booked_Trips: trip_id } },
-                { session }
-            );
-
+    
+            await User.findByIdAndUpdate(user_id, { $push: { booked_Trips: trip_id } }, { session });
+    
             await session.commitTransaction();
             session.endSession();
-
+    
             return {
                 success: true,
                 message: "Booking successful",
@@ -61,7 +57,7 @@ class BookingService {
             return { success: false, message: error.message || "Booking failed" };
         }
     }
-
+    
     async cancelBooking(booking_id, user_id) {
         const session = await mongoose.startSession();
         session.startTransaction();
@@ -82,11 +78,13 @@ class BookingService {
                 throw new Error("Cancellation not allowed within 24 hours of trip");
             }
 
+            const seatToCancel = booking.seat.map(String);
+
             await Trip.updateOne(
                 { _id: trip._id },
                 {
-                    $pull: { booked_seats: { $in: booking.seat_numbers } },
-                    $push: { available_seats: { $each: booking.seat_numbers } },
+                    $pull: { booked_seats: { $in: seatToCancel } },
+                    $push: { available_seats: { $each: seatToCancel } },
                 },
                 { session }
             );
