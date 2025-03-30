@@ -1,39 +1,50 @@
 import User from "../models/userModel.js";
 import Operator from "../models/operatorModel.js";
+
 class ProfileService {
-    async getUserProfile(userId) {
-        try{
-            const user = await User.findById(userId);
-            if(!user){
-                return { status: 400, success: false, message: "User not found" };
-            }
-            return { status: 200, success: true, message: "User profile retrieved successfully", user };
-        }
-        catch(error){
-            return { status: 500, success: false, message: "Error retrieving user profile", error: error.message };
-        }
-    }
-   async getOperatorProfile(operatorId) {
-        try{
-            const operator = await Operator.findById(operatorId);
-            if(!operator){
-                return { status: 404, success: false, message: "Operator not found" };
-            }
-            return { status: 200, success: true, message: "Operator profile retrieved successfully", operator };
-        }
-        catch(error){
-            return { status: 500, success: false, message: "Error retrieving operator profile", error: error.message };
+   
+    async handleDatabaseOperation(operation, successMessage, errorMessage) {
+        try {
+            const result = await operation();
+            if (!result) return { status: 404, success: false, message: "Not found" };
+            return { status: 200, success: true, message: successMessage, data: result };
+        } catch (error) {
+            console.error(`${errorMessage} failed:`, error);
+            return { status: 500, success: false, message: errorMessage, error: error.message };
         }
     }
-    async updateOperatorProfile(operatorId, operatorData) {
-        
-            const operator=Operator.findByIdAndUpdate(operatorId,operatorData,{new:true});
-            return { status: 200, success: true, message: "Operator profile updated successfully", operator };
+
+    async getUserProfile(user_id) {
+        return this.handleDatabaseOperation(
+            () => User.findById(user_id),
+            "User profile retrieved successfully",
+            "Error retrieving user profile"
+        );
     }
-    async updateUserProfile(operatorId, operatorData) {
-        
-        const user=User.findByIdAndUpdate(operatorId,operatorData,{new:true});
-        return { status: 200, success: true, message: "User profile updated successfully", user };
+
+    async getOperatorProfile(operator_id) {
+        return this.handleDatabaseOperation(
+            () => Operator.findById(operator_id),
+            "Operator profile retrieved successfully",
+            "Error retrieving operator profile"
+        );
+    }
+
+    async updateOperatorProfile(operator_id, operatorData) {
+        return this.handleDatabaseOperation(
+            () => Operator.findByIdAndUpdate(operator_id, { $set: operatorData }, { new: true, runValidators: true }),
+            "Operator profile updated successfully",
+            "Error updating operator profile"
+        );
+    }
+
+    async updateUserProfile(user_id, userData) {
+        return this.handleDatabaseOperation(
+            () => User.findByIdAndUpdate(user_id, { $set: userData }, { new: true, runValidators: true }),
+            "User profile updated successfully",
+            "Error updating user profile"
+        );
+    }
 }
-}
-export default  ProfileService;
+
+export default ProfileService;

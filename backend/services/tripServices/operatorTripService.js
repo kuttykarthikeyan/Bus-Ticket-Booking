@@ -1,103 +1,133 @@
 import BaseTripService from "./baseTripService.js";
 import Trip from "../../models/tripModel.js";
+import Operator from "../../models/operatorModel.js";
+import mongoose from "mongoose";
 
-
-
-class OperatorTripService  {
- constructor() {
+class OperatorTripService {
+    constructor() {
         this.baseTripService = new BaseTripService();
     }
-    async getTripById(tripId) {
-        return this.baseTripService.getTripById(tripId);
+
+    async getTripById(trip_id) {
+        return this.baseTripService.getTripById(trip_id);
     }
+
     async getAllTrips() {
         return this.baseTripService.getAllTrips();
     }
-    
-    async createTrip(tripData, operatorId) {
-        if (!operatorId) {
+
+    async createTrip(tripData, operator_id) {
+        if (!operator_id) {
             return { status: 400, success: false, message: "Operator ID is required" };
         }
-    
+
         try {
             const { total_seats, source, destination, departure_time, arrival_time, price, bus_id } = tripData;
-    
             if (!total_seats || total_seats <= 0) {
                 return { status: 400, success: false, message: "Total seats must be greater than 0" };
             }
-    
-            if (!source || !destination || !departure_time || !arrival_time || !price || !bus_id) {
-                return { status: 400, success: false, message: "All fields are required" };
-            }
-    
-            const seats = Array.from({ length: total_seats }, (_, i) => `S${i + 1}`);
-    
+
+            const available_seats = Array.from({ length: total_seats }, (_, i) => i + 1);
+
             const newTrip = new Trip({
-                operatorId,
+                operator_id,
                 bus_id,
-                source: source.trim(),
-                destination: destination.trim(),
+                source,
+                destination,
                 departure_time,
                 arrival_time,
                 price,
                 total_seats,
-                available_seats: seats
-              
+                available_seats,
             });
-    
+
             await newTrip.save();
-    
+            await Operator.findByIdAndUpdate(operator_id, { $push: { trips: newTrip._id } });
+
             return { status: 201, success: true, message: "Trip created successfully", trip: newTrip };
         } catch (error) {
             return { status: 500, success: false, message: "Error creating trip", error: error.message };
         }
     }
-    
 
-    async updateTrip(tripId, tripData) {
+    /** ✅ FIXED cancelTrip Method **/
+    async cancelTrip(trip_id, operator_id) {
+        if (!operator_id) {
+            return { status: 400, success: false, message: "Operator ID is required" };
+        }
+    
+        if (!mongoose.Types.ObjectId.isValid(trip_id)) {
+            return { status: 400, success: false, message: "Invalid trip ID format" };
+        }
+    
         try {
-            const updatedTrip = await Trip.findByIdAndUpdate(tripId, tripData, { new: true });
-            if (!updatedTrip) return { status: 404, success: false, message: "Trip not found" };
+            const trip = await Trip.findOne({ _id: trip_id, operator_id }); // Query using trip_id
+            if (!trip) {
+                return { status: 404, success: false, message: "Trip not found or unauthorized" };
+            }
+    
+            trip.isCancelled = true;
+            await trip.save();
+    
+            return { status: 200, success: true, message: "Trip cancelled successfully" };
+        } catch (error) {
+            return { status: 500, success: false, message: "Error cancelling trip", error: error.message };
+        }
+    }
+
+    async updateTrip(trip_id, tripData) {
+        try {
+            if (!mongoose.Types.ObjectId.isValid(trip_id)) {
+                return { status: 400, success: false, message: "Invalid trip ID format" };
+            }
+
+            const trip = await Trip.findById(trip_id);
+            if (!trip) {
+                return { status: 404, success: false, message: "Trip not found" };
+            }
+
+            const updatedTrip = await Trip.findByIdAndUpdate(trip_id, tripData, { new: true });
             return { status: 200, success: true, message: "Trip updated successfully", trip: updatedTrip };
         } catch (error) {
             return { status: 500, success: false, message: "Error updating trip", error: error.message };
         }
     }
 
-    async deleteTrip(tripId) {
+    async deleteTrip(trip_id, operator_id) {
         try {
-            const deletedTrip = await Trip.findByIdAndDelete(tripId);
-            if (!deletedTrip) return { status: 404, success: false, message: "Trip not found" };
+            if (!mongoose.Types.ObjectId.isValid(trip_id) || !mongoose.Types.ObjectId.isValid(operator_id)) {
+                return { status: 400, success: false, message: "Invalid trip ID or operator ID format" };
+            }
+
+            const trip = await Trip.findOne({ _id: trip_id, operator_id });
+            if (!trip) {
+                return { status: 404, success: false, message: "Trip not found or does not belong to this operator" };
+            }
+
+            await Trip.findByIdAndDelete(trip_id);
+            await Operator.findByIdAndUpdate(operator_id, { $pull: { trips: trip_id } });
+
             return { status: 200, success: true, message: "Trip deleted successfully" };
         } catch (error) {
             return { status: 500, success: false, message: "Error deleting trip", error: error.message };
         }
     }
-    async cancelTrip(tripId) {
+
+    async getOperatorTrips(operator_id) {
         try {
-            const cancelledTrip = await Trip.findByIdAndUpdate(tripId, { isCancelled: true }, { new: true });
-            if (!cancelledTrip) return { status: 404, success: false, message: "Trip not found" };
-            return { status: 200, success: true, message: "Trip cancelled successfully", trip: cancelledTrip };
+            if (!mongoose.Types.ObjectId.isValid(operator_id)) {
+                return { status: 400, success: false, message: "Invalid operator ID format" };
+            }
+
+            const trips = await Trip.find({ operator_id });
+            if (!trips.length) {
+                return { status: 404, success: false, message: "No trips found for this operator" };
+            }
+            return { status: 200, success: true, message: "Trips retrieved successfully", trips };
         } catch (error) {
-            return { status: 500, success: false, message: "Error cancelling trip", error: error.message };
+            return { status: 500, success: false, message: "Error retrieving operator trips", error: error.message };
         }
     }
-    async getOperatorTrips(operatorId) {
-        try{
-            const trips = await Trip.find({operatorId});
-            if(!trips){
-                return {status:400,success:false,message:"Trips not found"};
-            }
-            return {status:200,success:true,message:"Trips retrieved successfully",trips};
-        }
-         catch(error)
-         {
-            return{status: 500,success:false,message:"Error in getting Operator Trips ",error:error.message}
-         }
-         
-        }
-
-    
 }
 
 export default OperatorTripService;

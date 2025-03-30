@@ -6,8 +6,8 @@ const profileService = new ProfileService();
 const ProfileController = {
     async getUserProfile(req, res) {
         try {
-            const userId = req.user._id;
-            const result = await profileService.getUserProfile(userId);
+            const user_id = req.user._id;
+            const result = await profileService.getUserProfile(user_id);
             return res.status(result.status).json(result);
         } catch (error) {
             return handleError(res, error, "Error retrieving user profile");
@@ -16,8 +16,8 @@ const ProfileController = {
 
     async getOperatorProfile(req, res) {
         try {
-            const operatorId = req.user._id;
-            const result = await profileService.getOperatorProfile(operatorId);
+            const operator_id = req.user._id;
+            const result = await profileService.getOperatorProfile(operator_id);
             return res.status(result.status).json(result);
         } catch (error) {
             return handleError(res, error, "Error retrieving operator profile");
@@ -26,9 +26,9 @@ const ProfileController = {
 
     async updateOperatorProfile(req, res) {
         try {
-            const operatorId = req.user._id;
+            const operator_id = req.user._id;
             const operatorData = req.body;
-            const result = await profileService.updateOperatorProfile(operatorId, operatorData);
+            const result = await profileService.updateOperatorProfile(operator_id, operatorData);
             return res.status(result.status).json(result);
         } catch (error) {
             return handleError(res, error, "Error updating operator profile");
@@ -37,9 +37,9 @@ const ProfileController = {
 
     async updateUserProfile(req, res) {
         try {
-            const userId = req.user._id;
+            const user_id = req.user._id;
             const userData = req.body;
-            const result = await profileService.updateUserProfile(userId, userData);
+            const result = await profileService.updateUserProfile(user_id, userData);
             return res.status(result.status).json(result);
         } catch (error) {
             return handleError(res, error, "Error updating user profile");

@@ -7,99 +7,82 @@ class AdminService {
         this.operatorTripService = new OperatorTripService();
     }
 
+    async handleDatabaseOperation(operation, successMessage) {
+        try {
+            const result = await operation();
+            if (!result) return { status: 404, success: false, message: "Not found" };
+            return { status: 200, success: true, message: successMessage, data: result };
+        } catch (error) {
+            console.error(`${successMessage} failed:`, error);
+            return { status: 500, success: false, message: `Error: ${successMessage.toLowerCase()}`, error: error.message };
+        }
+    }
 
-    async createTrip(tripData, operatorId) {
+    createTrip(tripData, operatorId) {
         return this.operatorTripService.createTrip(tripData, operatorId);
     }
 
-    async updateTrip(tripId, tripData) {
+    updateTrip(tripId, tripData) {
         return this.operatorTripService.updateTrip(tripId, tripData);
     }
 
-    async deleteTrip(tripId) {
+    deleteTrip(tripId) {
         return this.operatorTripService.deleteTrip(tripId);
     }
 
-    async getAllTrips() {
+    getAllTrips() {
         return this.operatorTripService.getAllTrips();
     }
 
-    async getTripById(tripId) {
+    getTripById(tripId) {
         return this.operatorTripService.getTripById(tripId);
     }
 
-    async cancelTrip(tripId) {
+    cancelTrip(tripId) {
         return this.operatorTripService.cancelTrip(tripId);
     }
 
-    async getOperatorTrips(operatorId) {
+    getOperatorTrips(operatorId) {
         return this.operatorTripService.getOperatorTrips(operatorId);
     }
 
-    // 🔹 USER MANAGEMENT
-    async getAllUsers() {
-        try {
-            const users = await User.find();
-            return { status: 200, success: true, message: "Users retrieved successfully", users };
-        } catch (error) {
-            console.error("Error fetching users:", error);
-            return { status: 500, success: false, message: "Error retrieving users", error: error.message };
-        }
+    // 🔹 User Management
+    getAllUsers() {
+        return this.handleDatabaseOperation(() => User.find(), "Users retrieved successfully");
     }
 
-    async blockUser(userId) {
-        try {
-            const user = await User.findByIdAndUpdate(userId, { isBlocked: true }, { new: true });
-            if (!user) return { status: 404, success: false, message: "User not found" };
-            return { status: 200, success: true, message: "User blocked successfully", user };
-        } catch (error) {
-            console.error("Error blocking user:", error);
-            return { status: 500, success: false, message: "Error blocking user", error: error.message };
-        }
+    async toggleUserBlock(userId, blockStatus) {
+        return this.handleDatabaseOperation(
+            () => User.findByIdAndUpdate(userId, { isBlocked: blockStatus }, { new: true }).select("-password"),
+            blockStatus ? "User blocked successfully" : "User unblocked successfully"
+        );
     }
 
-    async unblockUser(userId) {
-        try {
-            const user = await User.findByIdAndUpdate(userId, { isBlocked: false }, { new: true });
-            if (!user) return { status: 404, success: false, message: "User not found" };
-            return { status: 200, success: true, message: "User unblocked successfully", user };
-        } catch (error) {
-            console.error("Error unblocking user:", error);
-            return { status: 500, success: false, message: "Error unblocking user", error: error.message };
-        }
+    blockUser(userId) {
+        return this.toggleUserBlock(userId, true);
     }
 
-    // 🔹 OPERATOR MANAGEMENT
-    async getAllOperators() {
-        try {
-            const operators = await Operator.find();
-            return { status: 200, success: true, message: "Operators retrieved successfully", operators };
-        } catch (error) {
-            console.error("Error fetching operators:", error);
-            return { status: 500, success: false, message: "Error retrieving operators", error: error.message };
-        }
+    unblockUser(userId) {
+        return this.toggleUserBlock(userId, false);
     }
 
-    async blockOperator(operatorId) {
-        try {
-            const operator = await Operator.findByIdAndUpdate(operatorId, { isBlocked: true }, { new: true });
-            if (!operator) return { status: 404, success: false, message: "Operator not found" };
-            return { status: 200, success: true, message: "Operator blocked successfully", operator };
-        } catch (error) {
-            console.error("Error blocking operator:", error);
-            return { status: 500, success: false, message: "Error blocking operator", error: error.message };
-        }
+    getAllOperators() {
+        return this.handleDatabaseOperation(() => Operator.find(), "Operators retrieved successfully");
     }
 
-    async unblockOperator(operatorId) {
-        try {
-            const operator = await Operator.findByIdAndUpdate(operatorId, { isBlocked: false }, { new: true });
-            if (!operator) return { status: 404, success: false, message: "Operator not found" };
-            return { status: 200, success: true, message: "Operator unblocked successfully", operator };
-        } catch (error) {
-            console.error("Error unblocking operator:", error);
-            return { status: 500, success: false, message: "Error unblocking operator", error: error.message };
-        }
+    async toggleOperatorBlock(operatorId, blockStatus) {
+        return this.handleDatabaseOperation(
+            () => Operator.findByIdAndUpdate(operatorId, { isBlocked: blockStatus }, { new: true }).select("-password"),
+            blockStatus ? "Operator blocked successfully" : "Operator unblocked successfully"
+        );
+    }
+
+    blockOperator(operatorId) {
+        return this.toggleOperatorBlock(operatorId, true);
+    }
+
+    unblockOperator(operatorId) {
+        return this.toggleOperatorBlock(operatorId, false);
     }
 }
 
