@@ -61,7 +61,7 @@ class OperatorTripService {
         }
     
         try {
-            const trip = await Trip.findOne({ _id: trip_id, operator_id }); // Query using trip_id
+            const trip = await Trip.findOne({ _id: trip_id, operator_id }); 
             if (!trip) {
                 return { status: 404, success: false, message: "Trip not found or unauthorized" };
             }
@@ -69,7 +69,7 @@ class OperatorTripService {
             trip.isCancelled = true;
             await trip.save();
     
-            return { status: 200, success: true, message: "Trip cancelled successfully" };
+            return { status: 200, success: true, message: "Trip cancelled successfully" ,data: trip};
         } catch (error) {
             return { status: 500, success: false, message: "Error cancelling trip", error: error.message };
         }
@@ -123,7 +123,7 @@ class OperatorTripService {
             if (!trips.length) {
                 return { status: 404, success: false, message: "No trips found for this operator" };
             }
-            return { status: 200, success: true, message: "Trips retrieved successfully", trips };
+            return { status: 200, success: true, message: "Trips retrieved successfully", data: trips };
         } catch (error) {
             return { status: 500, success: false, message: "Error retrieving operator trips", error: error.message };
         }

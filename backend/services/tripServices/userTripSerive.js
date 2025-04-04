@@ -33,7 +33,7 @@ class UserTripService {
     async getUserProfile(userId) {
         try {
             const user = await User.findById(userId).lean();
-            return { status: 200, success: true, message: "User profile retrieved", user };
+            return { status: 200, success: true, message: "User profile retrieved", data: user };
         } catch (error) {
             return { status: 500, success: false, message: "Error fetching user profile", error: error.message };
         }
@@ -42,7 +42,7 @@ class UserTripService {
     async getTripByFilter(filter) {
         try {
             const trips = await Trip.find(filter)
-            return { status: 200, success: true, message: "Filtered trips retrieved", trips };
+            return { status: 200, success: true, message: "Filtered trips retrieved", data :trips };
         } catch (error) {
             return { status: 500, success: false, message: "Error fetching trips", error: error.message };
         }
@@ -51,7 +51,7 @@ class UserTripService {
     async updateProfile(userId, update) {
         try {
             const user = await User.findByIdAndUpdate(userId, update, { new: true }).lean();
-            return { status: 200, success: true, message: "Profile updated successfully", user };
+            return { status: 200, success: true, message: "Profile updated successfully", data: user };
         } catch (error) {
             return { status: 500, success: false, message: "Error updating profile", error: error.message };
         }

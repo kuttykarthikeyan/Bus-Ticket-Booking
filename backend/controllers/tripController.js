@@ -9,17 +9,17 @@ const operatorTripService = new OperatorTripService();
 const TripController = {
     async createTrip(req, res) {
         try {
-            const operator_id = req.user._id;  // Get operator_id from the authenticated user
-            console.log("Operator ID:", operator_id); // Debugging
+            const operator_id = req.user._id;  
+            console.log("Operator ID:", operator_id); 
 
             if (!operator_id) {
                 return res.status(400).json({ success: false, message: "Operator ID is missing" });
             }
 
             const tripData = req.body;
-            tripData.operator_id = operator_id;  // Ensure operator_id is added
+            tripData.operator_id = operator_id;  
 
-            const result = await operatorTripService.createTrip(tripData, operator_id); // Pass correct ID
+            const result = await operatorTripService.createTrip(tripData, operator_id); 
 
             return res.status(result.status).json(result);
         } catch (error) {
@@ -56,8 +56,8 @@ const TripController = {
 
     async cancelTrip(req, res) {
         try {
-            const { trip_id } = req.params; // Ensure correct parameter name
-            const operator_id = req.user._id; // Extract operator_id from authenticated user
+            const { trip_id } = req.params; 
+            const operator_id = req.user._id; 
     
             console.log("Trip ID received:", trip_id);
             console.log("Operator ID:", operator_id);

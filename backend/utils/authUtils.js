@@ -18,7 +18,6 @@ const handleError = (res, error, message) => {
     console.error(`${message}:`, error);
     return res.status(500).json({
         success: false,
-        status: 500,
         message: message,
         error: error.message
     });
