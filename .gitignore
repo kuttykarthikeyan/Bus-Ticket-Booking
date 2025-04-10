@@ -2,3 +2,4 @@ backend/node_modules
 backend/.babelrc
 backend/.env
 backend/jest.config.js
+backend/logs
