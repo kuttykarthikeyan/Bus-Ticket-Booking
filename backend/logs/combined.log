@@ -2165,3 +2165,6 @@
 2025-04-10 13:11:53 [INFO]: POST /operator/trip - ::1
 2025-04-10 13:12:12 [INFO]: PUT /operator/trip/67f77641300a44b6ddab9c72 - ::1
 2025-04-10 13:12:29 [INFO]: PUT /operator/trip/67f77641300a44b6ddab9c72 - ::1
+2025-04-10 13:19:37 [INFO]: Connecting to MongoDB...
+2025-04-10 13:19:37 [INFO]: MongoDB Connected
+2025-04-10 13:19:37 [INFO]: Server running on port 8000
