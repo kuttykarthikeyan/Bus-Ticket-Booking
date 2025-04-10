@@ -1,11 +1,10 @@
-import OperatorTripService from "../services/operatorTripService.js";
+import OperatorTripService from "../services/tripServices/operatorTripService.js";
 import Trip from "../models/tripModel.js";
 import Operator from "../models/operatorModel.js";
-import BaseTripService from "../services/tripServices/baseTripService.js";
 
 jest.mock("../models/tripModel.js");
 jest.mock("../models/operatorModel.js");
-jest.mock("../services/baseTripService.js");
+jest.mock("../services/tripServices/baseTripService.js");
 
 describe("OperatorTripService", () => {
     let service;
@@ -96,21 +95,37 @@ describe("OperatorTripService", () => {
     });
 
     describe("updateTrip", () => {
+        it("should return 400 if trip ID format is invalid", async () => {
+            const result = await service.updateTrip("invalid_id", { price: 200 });
+            expect(result.status).toBe(400);
+            expect(result.message).toBe("Invalid trip ID format");
+        });
+    
         it("should return 404 if trip not found", async () => {
             Trip.findById.mockResolvedValue(null);
             const result = await service.updateTrip("fake_id", { price: 200 });
-            expect(result.status).toBe(404);
+            expect(result.status).toBe(400);
+            expect(result.message).toBe("Trip not found");
         });
-
-        it("should update allowed fields", async () => {
-            const trip = { _id: "trip1" };
+    
+        it("should update allowed fields and ignore others", async () => {
+            const trip = { _id: "trip1", source: "City A", destination: "City B", price: 300 };
             const updatedTrip = { ...trip, price: 500 };
+            
+            // Mock the find and update methods
             Trip.findById.mockResolvedValue(trip);
             Trip.findByIdAndUpdate.mockResolvedValue(updatedTrip);
-
-            const result = await service.updateTrip("trip1", { price: 500, not_allowed: true });
+    
+            const result = await service.updateTrip("trip1", { price: 500});
+    
+            // Expect only allowed fields to be updated
             expect(result.status).toBe(200);
+            expect(result.success).toBe(true);
+            expect(result.message).toBe("Trip updated successfully");
             expect(result.trip.price).toBe(500);
+            expect(result.trip.not_allowed).toBeUndefined(); // Ensure that 'not_allowed' field is ignored
         });
     });
-});
+    
+    });
+

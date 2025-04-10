@@ -2150,3 +2150,18 @@
 2025-04-04 16:41:04 [INFO]: MongoDB Connected
 2025-04-04 16:41:04 [INFO]: Server running on port 8000
 2025-04-04 16:41:09 [WARN]: MongoDB Disconnected
+2025-04-10 13:06:29 [INFO]: Connecting to MongoDB...
+2025-04-10 13:06:29 [INFO]: MongoDB Connected
+2025-04-10 13:06:29 [INFO]: Server running on port 8000
+2025-04-10 13:06:31 [INFO]: POST /operator/login - ::1
+2025-04-10 13:07:04 [INFO]: POST /operator/register - ::1
+2025-04-10 13:08:50 [INFO]: POST /operator/register - ::1
+2025-04-10 13:08:55 [INFO]: POST /operator/login - ::1
+2025-04-10 13:09:28 [INFO]: POST /operator/profile - ::1
+2025-04-10 13:09:32 [INFO]: GET /operator/profile - ::1
+2025-04-10 13:10:42 [INFO]: POST /operator/trip - ::1
+2025-04-10 13:11:04 [INFO]: POST /operator/trip - ::1
+2025-04-10 13:11:24 [INFO]: POST /operator/trip - ::1
+2025-04-10 13:11:53 [INFO]: POST /operator/trip - ::1
+2025-04-10 13:12:12 [INFO]: PUT /operator/trip/67f77641300a44b6ddab9c72 - ::1
+2025-04-10 13:12:29 [INFO]: PUT /operator/trip/67f77641300a44b6ddab9c72 - ::1
