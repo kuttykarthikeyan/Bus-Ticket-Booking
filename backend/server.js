@@ -4,7 +4,7 @@ import databaseService from './services/databaseService.js';
 import { logger, requestLogger, errorHandler } from './services/loggingService.js';
 import userRoutes from './routes/userRoutes.js';
 import operatorRoutes from './routes/operatorRoutes.js';
-
+import adminRoutes from './routes/adminRoutes.js';
 const app = express();
 const PORT = 8000;
 
@@ -14,6 +14,7 @@ app.use(requestLogger);
 
 app.use('/user', userRoutes);
 app.use('/operator', operatorRoutes);
+app.use('/admin',adminRoutes)
 
 app.get('/', (req, res) => {
     logger.info('Root endpoint accessed');
