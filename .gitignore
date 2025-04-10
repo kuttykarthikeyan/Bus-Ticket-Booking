@@ -1,4 +1,4 @@
 backend/node_modules
-backend/logs
 backend/.babelrc
 backend/.env
+backend/jest.config.js
