@@ -40,4 +40,5 @@ router.get("/operators/:operatorId", authMiddleware, adminMiddleware, AdminContr
 router.put("/operators/block/:operatorId", authMiddleware, adminMiddleware, AdminController.blockOperator);
 router.put("/operators/unblock/:operatorId", authMiddleware, adminMiddleware, AdminController.unblockOperator);
 
+router.get("/analytics",authMiddleware,adminMiddleware,AdminController.getAnalytics);
 export default router;

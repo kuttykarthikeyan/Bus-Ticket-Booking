@@ -5,8 +5,8 @@ class UserTripService {
         this.baseTripService = new BaseTripService();
     }
 
-    async getTripById(tripId) {
-        return this.baseTripService.getTripById(tripId);
+    async getTripById(trip_id) {
+        return this.baseTripService.getTripById(trip_id);
     }
 
     async getAllTrips() {

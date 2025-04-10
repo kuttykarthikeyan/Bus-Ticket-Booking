@@ -1,6 +1,7 @@
 import OperatorTripService from "../services/tripServices/operatorTripService.js";
 import User from "../models/userModel.js";
 import Operator from "../models/operatorModel.js";
+import Trip from "../models/tripModel.js";
 
 class AdminService {
     constructor() {
@@ -18,32 +19,32 @@ class AdminService {
         }
     }
 
-    createTrip(tripData, operatorId) {
-        return this.operatorTripService.createTrip(tripData, operatorId);
+    createTrip(tripData, operator_id) {
+        return this.operatorTripService.createTrip(tripData, operator_id);
     }
 
-    updateTrip(tripId, tripData) {
-        return this.operatorTripService.updateTrip(tripId, tripData);
+    updateTrip(trip_id, tripData) {
+        return this.operatorTripService.updateTrip(trip_id, tripData);
     }
 
-    deleteTrip(tripId) {
-        return this.operatorTripService.deleteTrip(tripId);
+    deleteTrip(trip_id) {
+        return this.operatorTripService.deleteTrip(trip_id);
     }
 
     getAllTrips() {
         return this.operatorTripService.getAllTrips();
     }
 
-    getTripById(tripId) {
-        return this.operatorTripService.getTripById(tripId);
+    getTripById(trip_id) {
+        return this.operatorTripService.getTripById(trip_id);
     }
 
-    cancelTrip(tripId) {
-        return this.operatorTripService.cancelTrip(tripId);
+    cancelTrip(trip_id) {
+        return this.operatorTripService.cancelTrip(trip_id);
     }
 
-    getOperatorTrips(operatorId) {
-        return this.operatorTripService.getOperatorTrips(operatorId);
+    getOperatorTrips(operator_id) {
+        return this.operatorTripService.getOperatorTrips(operator_id);
     }
 
     // 🔹 User Management
@@ -51,45 +52,102 @@ class AdminService {
         return this.handleDatabaseOperation(() => User.find(), "Users retrieved successfully");
     }
 
-    async toggleUserBlock(userId, blockStatus) {
+    async toggleUserBlock(user_id, blockStatus) {
         return this.handleDatabaseOperation(
-            () => User.findByIdAndUpdate(userId, { isBlocked: blockStatus }, { new: true }).select("-password"),
+            () => User.findByIdAndUpdate(user_id, { isBlocked: blockStatus }, { new: true }).select("-password"),
             blockStatus ? "User blocked successfully" : "User unblocked successfully"
         );
     }
 
-    blockUser(userId) {
-        return this.toggleUserBlock(userId, true);
+    blockUser(user_id) {
+        return this.toggleUserBlock(user_id, true);
     }
 
-    unblockUser(userId) {
-        return this.toggleUserBlock(userId, false);
+    unblockUser(user_id) {
+        return this.toggleUserBlock(user_id, false);
     }
 
     getAllOperators() {
         return this.handleDatabaseOperation(() => Operator.find(), "Operators retrieved successfully");
     }
 
-    async toggleOperatorBlock(operatorId, blockStatus) {
+    async toggleOperatorBlock(operator_id, blockStatus) {
         return this.handleDatabaseOperation(
-            () => Operator.findByIdAndUpdate(operatorId, { isBlocked: blockStatus }, { new: true }).select("-password"),
+            () => Operator.findByIdAndUpdate(operator_id, { isBlocked: blockStatus }, { new: true }).select("-password"),
             blockStatus ? "Operator blocked successfully" : "Operator unblocked successfully"
         );
     }
 
-    blockOperator(operatorId) {
-        return this.toggleOperatorBlock(operatorId, true);
+    blockOperator(operator_id) {
+        return this.toggleOperatorBlock(operator_id, true);
     }
 
-    unblockOperator(operatorId) {
-        return this.toggleOperatorBlock(operatorId, false);
+    unblockOperator(operator_id) {
+        return this.toggleOperatorBlock(operator_id, false);
     }
 
     getTripsByFilter(Filter)
     {
         return this.operatorTripService.getTripByFilter(Filter);
     }
-
+    async getAnalytics() {
+        try {
+          // Operators
+          const totalOperators = await Operator.countDocuments();
+          const activeOperators = await Operator.countDocuments({
+            status: "active",
+            isBlocked: false
+          });
+      
+          // Trips
+          const totalTrips = await Trip.countDocuments();
+          const activeTrips = await Trip.countDocuments({ isCancelled: false });
+      
+          // Users
+          const totalUsers = await User.countDocuments();
+          const blockedUsers = await User.countDocuments({ isBlocked: true });
+          const unblockedUsers = await User.countDocuments({ isBlocked: false });
+      
+          // Trips per operator (only counts)
+          const tripsPerOperator = await Trip.aggregate([
+            {
+              $group: {
+                _id: "$operator_id",
+                tripCount: { $sum: 1 }
+              }
+            }
+          ]);
+      
+          return {
+            status: 200,
+            message: "Analytics fetched successfully",
+            data: {
+              operators: {
+                total: totalOperators,
+                active: activeOperators,
+                tripsPerOperator: tripsPerOperator // Just operator ID and count
+              },
+              trips: {
+                total: totalTrips,
+                active: activeTrips
+              },
+              users: {
+                total: totalUsers,
+                blocked: blockedUsers,
+                unblocked: unblockedUsers
+              }
+            }
+          };
+        } catch (error) {
+          console.error("Analytics Service Error:", error);
+          return {
+            status: 500,
+            message: "Failed to fetch analytics",
+            error: error.message
+          };
+        }
+      }
+      
 }
 
 export default AdminService;

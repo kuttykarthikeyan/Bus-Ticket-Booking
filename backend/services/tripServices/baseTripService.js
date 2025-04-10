@@ -2,9 +2,9 @@ import Trip from "../../models/tripModel.js";
 
 class BaseTripService {
  
-async getTripById(tripId) {
+async getTripById(trip_id) {
   try {
-    const trip = await Trip.findById(tripId).populate("bus_id"); 
+    const trip = await Trip.findById(trip_id).populate("bus_id"); 
     if (!trip) return { status: 404, success: false, message: "Trip not found" };
     return { status: 200, success: true, message: "Trip retrieved", data: trip };
   } catch (error) {

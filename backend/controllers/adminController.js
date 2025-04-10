@@ -132,6 +132,19 @@ class AdminController {
             return handleError(res, error, `Error unblocking operator (${operatorId})`);
         }
     }
+    //Admin analytics
+    static async getAnalytics(req,res){
+       try{
+
+        const response= await adminService.getAnalytics()
+        res.status(response.status).json(response);
+       }
+       catch(error)
+       {
+        return handleError(res, error, "Error in  analytics controller ");
+       }
+
+    }
 }
 
 export default AdminController;
