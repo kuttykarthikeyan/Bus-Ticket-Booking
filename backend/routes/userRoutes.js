@@ -14,6 +14,8 @@ router.post("/book", authMiddleware,BookingController.bookTrip);
 router.post("/cancelBook",authMiddleware,BookingController.cancelBooking)
 router.get("/profile", authMiddleware, ProfileController.getUserProfile);
 router.put("/profile", authMiddleware, ProfileController.updateUserProfile);
+router.post("/trips",authMiddleware,TripController.getTripByFilter);
+router.get("/trips", authMiddleware, TripController.getAllTrips);
 
 
 
@@ -24,6 +26,8 @@ router.delete("/trip/:tripId", authMiddleware, adminMiddleware, TripController.d
 router.get("/trips", authMiddleware, adminMiddleware, TripController.getAllTrips);
 router.get("/trip/:tripId", authMiddleware, adminMiddleware, TripController.getTripById);
 router.put("/canceltrip/:tripId", authMiddleware, adminMiddleware, TripController.cancelTrip);
+router.post("/trips",authMiddleware,adminMiddleware,TripController.getTripByFilter);
+
 
 
 router.get("/users", authMiddleware, adminMiddleware, AdminController.getAllUsers);

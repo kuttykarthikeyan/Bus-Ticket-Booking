@@ -84,6 +84,12 @@ class AdminService {
     unblockOperator(operatorId) {
         return this.toggleOperatorBlock(operatorId, false);
     }
+
+    getTripsByFilter(Filter)
+    {
+        return this.operatorTripService.getTripByFilter(Filter);
+    }
+
 }
 
 export default AdminService;

@@ -1,11 +1,12 @@
 import AdminService from "../services/adminService.js";
+import BaseTripService from "../services/tripServices/baseTripService.js";
 import OperatorTripService from "../services/tripServices/operatorTripService.js";
+
 import { handleError } from "../utils/authUtils.js";
 import mongoose from "mongoose";
 
-const adminService = new AdminService();
 const operatorTripService = new OperatorTripService();
-
+const  baseTripService = new BaseTripService()
 const TripController = {
     async createTrip(req, res) {
         try {
@@ -81,7 +82,7 @@ const TripController = {
     
     async getAllTrips(req, res) {
         try {
-            const result = await adminService.getAllTrips();
+            const result = await baseTripService.getAllTrips();
             return res.status(result.status).json(result);
         } catch (error) {
             return handleError(res, error, "Error fetching trips");
@@ -94,10 +95,22 @@ const TripController = {
 
             if (!mongoose.Types.ObjectId.isValid(trip_id)) return res.status(400).json({ success: false, message: "Invalid Trip ID" });
 
-            const result = await adminService.getTripById(trip_id);
+            const result = await baseTripService.getTripById(trip_id);
             return res.status(result.status).json(result);
         } catch (error) {
             return handleError(res, error, "Error fetching trip details");
+        }
+    },
+    async getTripByFilter(req,res)
+    {
+        try{
+            const Filter = req.body;
+            const  result =await  baseTripService.getTripByFilter(Filter);
+            return res.status(result.status).json(result);
+                }
+        catch(error)
+        {
+            return handleError(res,error,"Error in Filtering trips")
         }
     }
 };

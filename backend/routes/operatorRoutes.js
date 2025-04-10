@@ -13,7 +13,7 @@ router.post("/login", authController.operatorLogin);
 
 // Operator Profile Route
 router.get("/profile", operatorAuthMiddleware, ProfileController.getOperatorProfile);
-
+router.put("/profile",operatorAuthMiddleware,ProfileController.updateOperatorProfile);
 // Bus Routes
 router.post("/bus", operatorAuthMiddleware, BusController.createBus);
 router.put("/bus/:bus_id", operatorAuthMiddleware, BusController.updateBus);
@@ -24,7 +24,7 @@ router.post("/trip", operatorAuthMiddleware, TripController.createTrip);
 router.put("/trip/:trip_id", operatorAuthMiddleware, TripController.updateTrip);
 router.delete("/trip/:trip_id", operatorAuthMiddleware, TripController.deleteTrip);
 router.put("/trip/cancel/:trip_id", operatorAuthMiddleware, TripController.cancelTrip);
-router.get("/trip", operatorAuthMiddleware, TripController.getAllTrips);
+router.get("/trips", operatorAuthMiddleware, TripController.getAllTrips);
 router.get("/trip/:trip_id", operatorAuthMiddleware, TripController.getTripById);
 
 export default router;

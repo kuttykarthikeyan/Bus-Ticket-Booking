@@ -15,6 +15,9 @@ class OperatorTripService {
     async getAllTrips() {
         return this.baseTripService.getAllTrips();
     }
+    async getTripByFilter(Filter){
+        return this.baseTripService.getTripByFilter(Filter);
+    }
 
     async createTrip(tripData, operator_id) {
         if (!operator_id) {
@@ -50,7 +53,7 @@ class OperatorTripService {
         }
     }
 
-    /** ✅ FIXED cancelTrip Method **/
+    /**  FIXED cancelTrip Method **/
     async cancelTrip(trip_id, operator_id) {
         if (!operator_id) {
             return { status: 400, success: false, message: "Operator ID is required" };
@@ -75,23 +78,52 @@ class OperatorTripService {
         }
     }
 
-    async updateTrip(trip_id, tripData) {
+      async updateTrip(trip_id, tripData) {
         try {
-            if (!mongoose.Types.ObjectId.isValid(trip_id)) {
-                return { status: 400, success: false, message: "Invalid trip ID format" };
+          if (!mongoose.Types.ObjectId.isValid(trip_id)) {
+            return { status: 400, success: false, message: "Invalid trip ID format" };
+          }
+    
+          const trip = await Trip.findById(trip_id);
+          if (!trip) {
+            return { status: 404, success: false, message: "Trip not found" };
+          }
+    
+          const updatableFields = [
+            "source",
+            "destination",
+            "departure_time",
+            "arrival_time",
+            "price",
+            "isCancelled"
+          ];
+    
+          const updatePayload = {};
+          for (const key of updatableFields) {
+            if (key in tripData) {
+              updatePayload[key] = tripData[key];
             }
-
-            const trip = await Trip.findById(trip_id);
-            if (!trip) {
-                return { status: 404, success: false, message: "Trip not found" };
-            }
-
-            const updatedTrip = await Trip.findByIdAndUpdate(trip_id, tripData, { new: true });
-            return { status: 200, success: true, message: "Trip updated successfully", trip: updatedTrip };
+          }
+    
+          const updatedTrip = await Trip.findByIdAndUpdate(trip_id, updatePayload, { new: true });
+    
+          return {
+            status: 200,
+            success: true,
+            message: "Trip updated successfully",
+            trip: updatedTrip
+          };
         } catch (error) {
-            return { status: 500, success: false, message: "Error updating trip", error: error.message };
+          return {
+            status: 500,
+            success: false,
+            message: "Error updating trip",
+            error: error.message
+          };
         }
-    }
+      }
+
+    
 
     async deleteTrip(trip_id, operator_id) {
         try {
