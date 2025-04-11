@@ -3078,3 +3078,771 @@
 2025-04-10 17:00:42 [INFO]: Server running on port 8000
 2025-04-10 17:00:46 [INFO]: GET /user/analytics - ::1
 2025-04-10 17:01:01 [INFO]: GET /admin/analytics - ::1
+2025-04-10 17:02:08 [INFO]: GET /admin/users - ::1
+2025-04-10 17:07:34 [WARN]: MongoDB Disconnected
+2025-04-11 09:05:03 [INFO]: GET /admin/users - ::1
+2025-04-11 09:06:19 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:19 [INFO]: MongoDB Connected
+2025-04-11 09:06:19 [INFO]: Server running on port 8000
+2025-04-11 09:06:22 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:22 [INFO]: MongoDB Connected
+2025-04-11 09:06:22 [INFO]: Server running on port 8000
+2025-04-11 09:06:24 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:24 [INFO]: MongoDB Connected
+2025-04-11 09:06:24 [INFO]: Server running on port 8000
+2025-04-11 09:06:25 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:25 [INFO]: MongoDB Connected
+2025-04-11 09:06:25 [INFO]: Server running on port 8000
+2025-04-11 09:06:26 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:26 [INFO]: MongoDB Connected
+2025-04-11 09:06:26 [INFO]: Server running on port 8000
+2025-04-11 09:06:28 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:28 [INFO]: MongoDB Connected
+2025-04-11 09:06:28 [INFO]: Server running on port 8000
+2025-04-11 09:06:31 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:31 [INFO]: MongoDB Connected
+2025-04-11 09:06:31 [INFO]: Server running on port 8000
+2025-04-11 09:06:32 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:32 [INFO]: MongoDB Connected
+2025-04-11 09:06:32 [INFO]: Server running on port 8000
+2025-04-11 09:06:34 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:34 [INFO]: MongoDB Connected
+2025-04-11 09:06:34 [INFO]: Server running on port 8000
+2025-04-11 09:06:36 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:36 [INFO]: MongoDB Connected
+2025-04-11 09:06:36 [INFO]: Server running on port 8000
+2025-04-11 09:06:37 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:37 [INFO]: MongoDB Connected
+2025-04-11 09:06:37 [INFO]: Server running on port 8000
+2025-04-11 09:06:39 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:39 [INFO]: MongoDB Connected
+2025-04-11 09:06:39 [INFO]: Server running on port 8000
+2025-04-11 09:06:40 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:40 [INFO]: MongoDB Connected
+2025-04-11 09:06:40 [INFO]: Server running on port 8000
+2025-04-11 09:06:41 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:41 [INFO]: MongoDB Connected
+2025-04-11 09:06:41 [INFO]: Server running on port 8000
+2025-04-11 09:06:55 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:55 [INFO]: MongoDB Connected
+2025-04-11 09:06:55 [INFO]: Server running on port 8000
+2025-04-11 09:06:58 [INFO]: Connecting to MongoDB...
+2025-04-11 09:06:58 [INFO]: MongoDB Connected
+2025-04-11 09:06:58 [INFO]: Server running on port 8000
+2025-04-11 09:11:17 [INFO]: Connecting to MongoDB...
+2025-04-11 09:11:17 [INFO]: MongoDB Connected
+2025-04-11 09:11:17 [INFO]: Server running on port 8000
+2025-04-11 09:11:20 [INFO]: Connecting to MongoDB...
+2025-04-11 09:11:20 [INFO]: MongoDB Connected
+2025-04-11 09:11:20 [INFO]: Server running on port 8000
+2025-04-11 09:11:22 [INFO]: Connecting to MongoDB...
+2025-04-11 09:11:22 [INFO]: MongoDB Connected
+2025-04-11 09:11:22 [INFO]: Server running on port 8000
+2025-04-11 09:12:17 [INFO]: PUT /admin/block/67e6d7d4a5f39134ab5b6461 - ::1
+2025-04-11 09:12:29 [INFO]: PUT /api/admin/block/67e6d7d4a5f39134ab5b6461 - ::1
+2025-04-11 09:12:50 [INFO]: PUT /api/admin/users/block/67e6d7d4a5f39134ab5b6461 - ::1
+2025-04-11 09:13:23 [INFO]: PUT /api/admin/users/block/67e6d7d4a5f39134ab5b6461 - ::1
+2025-04-11 09:14:02 [INFO]: GET /api/admin/users - ::1
+2025-04-11 09:14:35 [INFO]: Connecting to MongoDB...
+2025-04-11 09:14:35 [INFO]: MongoDB Connected
+2025-04-11 09:14:35 [INFO]: Server running on port 8000
+2025-04-11 09:14:38 [INFO]: Connecting to MongoDB...
+2025-04-11 09:14:38 [INFO]: MongoDB Connected
+2025-04-11 09:14:38 [INFO]: Server running on port 8000
+2025-04-11 09:14:40 [INFO]: Connecting to MongoDB...
+2025-04-11 09:14:40 [INFO]: MongoDB Connected
+2025-04-11 09:14:40 [INFO]: Server running on port 8000
+2025-04-11 09:14:42 [INFO]: GET /api/admin/users - ::1
+2025-04-11 09:14:55 [INFO]: PUT /api/admin/users/block/67e6d7d4a5f39134ab5b6461 - ::1
+2025-04-11 09:15:04 [INFO]: GET /api/admin/users - ::1
+2025-04-11 09:15:13 [INFO]: GET /api/admin/users/unblock/67e6d7d4a5f39134ab5b6461 - ::1
+2025-04-11 09:15:17 [INFO]: PUT /api/admin/users/unblock/67e6d7d4a5f39134ab5b6461 - ::1
+2025-04-11 09:16:39 [INFO]: Connecting to MongoDB...
+2025-04-11 09:16:39 [INFO]: MongoDB Connected
+2025-04-11 09:16:39 [INFO]: Server running on port 8000
+2025-04-11 09:17:04 [INFO]: Connecting to MongoDB...
+2025-04-11 09:17:04 [INFO]: MongoDB Connected
+2025-04-11 09:17:04 [INFO]: Server running on port 8000
+2025-04-11 09:17:08 [INFO]: Connecting to MongoDB...
+2025-04-11 09:17:08 [INFO]: MongoDB Connected
+2025-04-11 09:17:08 [INFO]: Server running on port 8000
+2025-04-11 09:17:14 [INFO]: Connecting to MongoDB...
+2025-04-11 09:17:14 [INFO]: MongoDB Connected
+2025-04-11 09:17:14 [INFO]: Server running on port 8000
+2025-04-11 09:17:19 [INFO]: Connecting to MongoDB...
+2025-04-11 09:17:19 [INFO]: MongoDB Connected
+2025-04-11 09:17:19 [INFO]: Server running on port 8000
+2025-04-11 09:17:32 [INFO]: Connecting to MongoDB...
+2025-04-11 09:17:32 [INFO]: MongoDB Connected
+2025-04-11 09:17:32 [INFO]: Server running on port 8000
+2025-04-11 09:17:35 [INFO]: Connecting to MongoDB...
+2025-04-11 09:17:35 [INFO]: MongoDB Connected
+2025-04-11 09:17:35 [INFO]: Server running on port 8000
+2025-04-11 09:17:38 [INFO]: Connecting to MongoDB...
+2025-04-11 09:17:38 [INFO]: MongoDB Connected
+2025-04-11 09:17:38 [INFO]: Server running on port 8000
+2025-04-11 09:17:44 [INFO]: Connecting to MongoDB...
+2025-04-11 09:17:44 [INFO]: MongoDB Connected
+2025-04-11 09:17:44 [INFO]: Server running on port 8000
+2025-04-11 09:17:46 [INFO]: Connecting to MongoDB...
+2025-04-11 09:17:46 [INFO]: MongoDB Connected
+2025-04-11 09:17:46 [INFO]: Server running on port 8000
+2025-04-11 09:20:19 [INFO]: Connecting to MongoDB...
+2025-04-11 09:20:19 [INFO]: MongoDB Connected
+2025-04-11 09:20:19 [INFO]: Server running on port 8000
+2025-04-11 09:20:48 [INFO]: Connecting to MongoDB...
+2025-04-11 09:20:48 [INFO]: MongoDB Connected
+2025-04-11 09:20:48 [INFO]: Server running on port 8000
+2025-04-11 09:20:52 [INFO]: Connecting to MongoDB...
+2025-04-11 09:20:52 [INFO]: MongoDB Connected
+2025-04-11 09:20:52 [INFO]: Server running on port 8000
+2025-04-11 09:21:15 [INFO]: Connecting to MongoDB...
+2025-04-11 09:21:15 [INFO]: MongoDB Connected
+2025-04-11 09:21:15 [INFO]: Server running on port 8000
+2025-04-11 09:21:19 [INFO]: Connecting to MongoDB...
+2025-04-11 09:21:19 [INFO]: MongoDB Connected
+2025-04-11 09:21:19 [INFO]: Server running on port 8000
+2025-04-11 09:21:23 [INFO]: Connecting to MongoDB...
+2025-04-11 09:21:23 [INFO]: MongoDB Connected
+2025-04-11 09:21:23 [INFO]: Server running on port 8000
+2025-04-11 09:21:27 [INFO]: Connecting to MongoDB...
+2025-04-11 09:21:27 [INFO]: MongoDB Connected
+2025-04-11 09:21:27 [INFO]: Server running on port 8000
+2025-04-11 09:21:32 [INFO]: Connecting to MongoDB...
+2025-04-11 09:21:32 [INFO]: MongoDB Connected
+2025-04-11 09:21:32 [INFO]: Server running on port 8000
+2025-04-11 09:21:36 [INFO]: Connecting to MongoDB...
+2025-04-11 09:21:36 [INFO]: MongoDB Connected
+2025-04-11 09:21:36 [INFO]: Server running on port 8000
+2025-04-11 09:21:39 [INFO]: Connecting to MongoDB...
+2025-04-11 09:21:39 [INFO]: MongoDB Connected
+2025-04-11 09:21:39 [INFO]: Server running on port 8000
+2025-04-11 09:21:56 [INFO]: Connecting to MongoDB...
+2025-04-11 09:21:56 [INFO]: MongoDB Connected
+2025-04-11 09:21:56 [INFO]: Server running on port 8000
+2025-04-11 09:21:58 [INFO]: Connecting to MongoDB...
+2025-04-11 09:21:58 [INFO]: MongoDB Connected
+2025-04-11 09:21:58 [INFO]: Server running on port 8000
+2025-04-11 09:22:00 [INFO]: Connecting to MongoDB...
+2025-04-11 09:22:00 [INFO]: MongoDB Connected
+2025-04-11 09:22:00 [INFO]: Server running on port 8000
+2025-04-11 09:22:08 [INFO]: Connecting to MongoDB...
+2025-04-11 09:22:08 [INFO]: MongoDB Connected
+2025-04-11 09:22:08 [INFO]: Server running on port 8000
+2025-04-11 09:22:10 [INFO]: Connecting to MongoDB...
+2025-04-11 09:22:10 [INFO]: MongoDB Connected
+2025-04-11 09:22:10 [INFO]: Server running on port 8000
+2025-04-11 09:22:13 [INFO]: Connecting to MongoDB...
+2025-04-11 09:22:13 [INFO]: MongoDB Connected
+2025-04-11 09:22:13 [INFO]: Server running on port 8000
+2025-04-11 09:22:17 [INFO]: Connecting to MongoDB...
+2025-04-11 09:22:17 [INFO]: MongoDB Connected
+2025-04-11 09:22:17 [INFO]: Server running on port 8000
+2025-04-11 09:22:19 [INFO]: Connecting to MongoDB...
+2025-04-11 09:22:19 [INFO]: MongoDB Connected
+2025-04-11 09:22:19 [INFO]: Server running on port 8000
+2025-04-11 09:22:39 [INFO]: Connecting to MongoDB...
+2025-04-11 09:22:39 [INFO]: MongoDB Connected
+2025-04-11 09:22:39 [INFO]: Server running on port 8000
+2025-04-11 09:22:48 [INFO]: Connecting to MongoDB...
+2025-04-11 09:22:48 [INFO]: MongoDB Connected
+2025-04-11 09:22:48 [INFO]: Server running on port 8000
+2025-04-11 09:22:59 [INFO]: Connecting to MongoDB...
+2025-04-11 09:22:59 [INFO]: MongoDB Connected
+2025-04-11 09:22:59 [INFO]: Server running on port 8000
+2025-04-11 09:23:01 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:01 [INFO]: MongoDB Connected
+2025-04-11 09:23:01 [INFO]: Server running on port 8000
+2025-04-11 09:23:03 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:03 [INFO]: MongoDB Connected
+2025-04-11 09:23:03 [INFO]: Server running on port 8000
+2025-04-11 09:23:05 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:05 [INFO]: MongoDB Connected
+2025-04-11 09:23:05 [INFO]: Server running on port 8000
+2025-04-11 09:23:12 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:12 [INFO]: MongoDB Connected
+2025-04-11 09:23:12 [INFO]: Server running on port 8000
+2025-04-11 09:23:16 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:16 [INFO]: MongoDB Connected
+2025-04-11 09:23:16 [INFO]: Server running on port 8000
+2025-04-11 09:23:19 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:19 [INFO]: MongoDB Connected
+2025-04-11 09:23:19 [INFO]: Server running on port 8000
+2025-04-11 09:23:23 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:23 [INFO]: MongoDB Connected
+2025-04-11 09:23:23 [INFO]: Server running on port 8000
+2025-04-11 09:23:26 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:26 [INFO]: MongoDB Connected
+2025-04-11 09:23:26 [INFO]: Server running on port 8000
+2025-04-11 09:23:27 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:27 [INFO]: MongoDB Connected
+2025-04-11 09:23:27 [INFO]: Server running on port 8000
+2025-04-11 09:23:31 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:31 [INFO]: MongoDB Connected
+2025-04-11 09:23:31 [INFO]: Server running on port 8000
+2025-04-11 09:23:38 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:38 [INFO]: MongoDB Connected
+2025-04-11 09:23:38 [INFO]: Server running on port 8000
+2025-04-11 09:23:40 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:40 [INFO]: MongoDB Connected
+2025-04-11 09:23:40 [INFO]: Server running on port 8000
+2025-04-11 09:23:47 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:47 [INFO]: MongoDB Connected
+2025-04-11 09:23:47 [INFO]: Server running on port 8000
+2025-04-11 09:23:51 [INFO]: Connecting to MongoDB...
+2025-04-11 09:23:51 [INFO]: MongoDB Connected
+2025-04-11 09:23:51 [INFO]: Server running on port 8000
+2025-04-11 09:24:10 [INFO]: Connecting to MongoDB...
+2025-04-11 09:24:10 [INFO]: MongoDB Connected
+2025-04-11 09:24:10 [INFO]: Server running on port 8000
+2025-04-11 09:24:11 [INFO]: Connecting to MongoDB...
+2025-04-11 09:24:11 [INFO]: MongoDB Connected
+2025-04-11 09:24:11 [INFO]: Server running on port 8000
+2025-04-11 09:24:18 [INFO]: Connecting to MongoDB...
+2025-04-11 09:24:18 [INFO]: MongoDB Connected
+2025-04-11 09:24:18 [INFO]: Server running on port 8000
+2025-04-11 09:24:34 [INFO]: Connecting to MongoDB...
+2025-04-11 09:24:34 [INFO]: MongoDB Connected
+2025-04-11 09:24:34 [INFO]: Server running on port 8000
+2025-04-11 09:24:37 [INFO]: Connecting to MongoDB...
+2025-04-11 09:24:37 [INFO]: MongoDB Connected
+2025-04-11 09:24:37 [INFO]: Server running on port 8000
+2025-04-11 09:24:40 [INFO]: Connecting to MongoDB...
+2025-04-11 09:24:40 [INFO]: MongoDB Connected
+2025-04-11 09:24:40 [INFO]: Server running on port 8000
+2025-04-11 09:24:44 [INFO]: Connecting to MongoDB...
+2025-04-11 09:24:44 [INFO]: MongoDB Connected
+2025-04-11 09:24:44 [INFO]: Server running on port 8000
+2025-04-11 09:24:48 [INFO]: Connecting to MongoDB...
+2025-04-11 09:24:48 [INFO]: MongoDB Connected
+2025-04-11 09:24:48 [INFO]: Server running on port 8000
+2025-04-11 09:24:49 [INFO]: Connecting to MongoDB...
+2025-04-11 09:24:49 [INFO]: MongoDB Connected
+2025-04-11 09:24:49 [INFO]: Server running on port 8000
+2025-04-11 09:25:06 [INFO]: Connecting to MongoDB...
+2025-04-11 09:25:06 [INFO]: MongoDB Connected
+2025-04-11 09:25:06 [INFO]: Server running on port 8000
+2025-04-11 09:25:06 [INFO]: Connecting to MongoDB...
+2025-04-11 09:25:06 [INFO]: MongoDB Connected
+2025-04-11 09:25:06 [INFO]: Server running on port 8000
+2025-04-11 09:25:22 [INFO]: Connecting to MongoDB...
+2025-04-11 09:25:22 [INFO]: MongoDB Connected
+2025-04-11 09:25:22 [INFO]: Server running on port 8000
+2025-04-11 09:37:51 [INFO]: Connecting to MongoDB...
+2025-04-11 09:37:51 [INFO]: MongoDB Connected
+2025-04-11 09:37:51 [INFO]: Server running on port 8000
+2025-04-11 09:38:01 [INFO]: Connecting to MongoDB...
+2025-04-11 09:38:01 [INFO]: MongoDB Connected
+2025-04-11 09:38:01 [INFO]: Server running on port 8000
+2025-04-11 09:38:05 [INFO]: Connecting to MongoDB...
+2025-04-11 09:38:05 [INFO]: MongoDB Connected
+2025-04-11 09:38:05 [INFO]: Server running on port 8000
+2025-04-11 09:38:08 [INFO]: Connecting to MongoDB...
+2025-04-11 09:38:08 [INFO]: MongoDB Connected
+2025-04-11 09:38:08 [INFO]: Server running on port 8000
+2025-04-11 09:38:10 [INFO]: Connecting to MongoDB...
+2025-04-11 09:38:10 [INFO]: MongoDB Connected
+2025-04-11 09:38:10 [INFO]: Server running on port 8000
+2025-04-11 09:43:54 [INFO]: Connecting to MongoDB...
+2025-04-11 09:43:54 [INFO]: MongoDB Connected
+2025-04-11 09:43:54 [INFO]: Server running on port 8000
+2025-04-11 09:43:58 [INFO]: Connecting to MongoDB...
+2025-04-11 09:43:58 [INFO]: MongoDB Connected
+2025-04-11 09:43:58 [INFO]: Server running on port 8000
+2025-04-11 09:44:03 [INFO]: Connecting to MongoDB...
+2025-04-11 09:44:03 [INFO]: MongoDB Connected
+2025-04-11 09:44:03 [INFO]: Server running on port 8000
+2025-04-11 09:44:07 [INFO]: Connecting to MongoDB...
+2025-04-11 09:44:07 [INFO]: MongoDB Connected
+2025-04-11 09:44:07 [INFO]: Server running on port 8000
+2025-04-11 09:44:09 [INFO]: Connecting to MongoDB...
+2025-04-11 09:44:09 [INFO]: MongoDB Connected
+2025-04-11 09:44:09 [INFO]: Server running on port 8000
+2025-04-11 09:44:12 [INFO]: Connecting to MongoDB...
+2025-04-11 09:44:12 [INFO]: MongoDB Connected
+2025-04-11 09:44:12 [INFO]: Server running on port 8000
+2025-04-11 09:44:29 [INFO]: Connecting to MongoDB...
+2025-04-11 09:44:29 [INFO]: MongoDB Connected
+2025-04-11 09:44:29 [INFO]: Server running on port 8000
+2025-04-11 09:44:31 [INFO]: Connecting to MongoDB...
+2025-04-11 09:44:31 [INFO]: MongoDB Connected
+2025-04-11 09:44:31 [INFO]: Server running on port 8000
+2025-04-11 09:44:33 [INFO]: Connecting to MongoDB...
+2025-04-11 09:44:33 [INFO]: MongoDB Connected
+2025-04-11 09:44:33 [INFO]: Server running on port 8000
+2025-04-11 09:44:37 [INFO]: Connecting to MongoDB...
+2025-04-11 09:44:37 [INFO]: MongoDB Connected
+2025-04-11 09:44:37 [INFO]: Server running on port 8000
+2025-04-11 09:45:12 [INFO]: Connecting to MongoDB...
+2025-04-11 09:45:12 [INFO]: MongoDB Connected
+2025-04-11 09:45:12 [INFO]: Server running on port 8000
+2025-04-11 09:45:13 [INFO]: Connecting to MongoDB...
+2025-04-11 09:45:13 [INFO]: MongoDB Connected
+2025-04-11 09:45:13 [INFO]: Server running on port 8000
+2025-04-11 09:45:15 [INFO]: Connecting to MongoDB...
+2025-04-11 09:45:15 [INFO]: MongoDB Connected
+2025-04-11 09:45:15 [INFO]: Server running on port 8000
+2025-04-11 09:45:24 [INFO]: Connecting to MongoDB...
+2025-04-11 09:45:24 [INFO]: MongoDB Connected
+2025-04-11 09:45:24 [INFO]: Server running on port 8000
+2025-04-11 09:45:26 [INFO]: Connecting to MongoDB...
+2025-04-11 09:45:26 [INFO]: MongoDB Connected
+2025-04-11 09:45:26 [INFO]: Server running on port 8000
+2025-04-11 09:45:29 [INFO]: Connecting to MongoDB...
+2025-04-11 09:45:29 [INFO]: MongoDB Connected
+2025-04-11 09:45:29 [INFO]: Server running on port 8000
+2025-04-11 09:45:46 [INFO]: Connecting to MongoDB...
+2025-04-11 09:45:46 [INFO]: MongoDB Connected
+2025-04-11 09:45:46 [INFO]: Server running on port 8000
+2025-04-11 09:45:51 [INFO]: Connecting to MongoDB...
+2025-04-11 09:45:51 [INFO]: MongoDB Connected
+2025-04-11 09:45:51 [INFO]: Server running on port 8000
+2025-04-11 09:45:57 [INFO]: Connecting to MongoDB...
+2025-04-11 09:45:57 [INFO]: MongoDB Connected
+2025-04-11 09:45:57 [INFO]: Server running on port 8000
+2025-04-11 10:39:06 [WARN]: MongoDB Disconnected
+2025-04-11 14:12:52 [WARN]: MongoDB Disconnected
+2025-04-11 17:13:40 [WARN]: MongoDB Disconnected
+2025-04-11 17:13:45 [INFO]: Connecting to MongoDB...
+2025-04-11 17:13:45 [INFO]: MongoDB Connected
+2025-04-11 17:13:45 [INFO]: Server running on port 8000
+2025-04-11 17:15:12 [INFO]: Connecting to MongoDB...
+2025-04-11 17:15:12 [INFO]: MongoDB Connected
+2025-04-11 17:15:12 [INFO]: Server running on port 8000
+2025-04-11 17:15:35 [INFO]: Connecting to MongoDB...
+2025-04-11 17:15:35 [INFO]: MongoDB Connected
+2025-04-11 17:15:35 [INFO]: Server running on port 8000
+2025-04-11 17:20:18 [INFO]: Connecting to MongoDB...
+2025-04-11 17:20:18 [INFO]: MongoDB Connected
+2025-04-11 17:20:18 [INFO]: Server running on port 8000
+2025-04-11 17:20:49 [INFO]: Connecting to MongoDB...
+2025-04-11 17:20:49 [INFO]: MongoDB Connected
+2025-04-11 17:20:49 [INFO]: Server running on port 8000
+2025-04-11 17:21:03 [INFO]: Connecting to MongoDB...
+2025-04-11 17:21:03 [INFO]: MongoDB Connected
+2025-04-11 17:21:03 [INFO]: Server running on port 8000
+2025-04-11 17:21:08 [INFO]: Connecting to MongoDB...
+2025-04-11 17:21:08 [INFO]: MongoDB Connected
+2025-04-11 17:21:08 [INFO]: Server running on port 8000
+2025-04-11 17:21:21 [INFO]: Connecting to MongoDB...
+2025-04-11 17:21:21 [INFO]: MongoDB Connected
+2025-04-11 17:21:21 [INFO]: Server running on port 8000
+2025-04-11 17:21:22 [INFO]: Connecting to MongoDB...
+2025-04-11 17:21:22 [INFO]: MongoDB Connected
+2025-04-11 17:21:22 [INFO]: Server running on port 8000
+2025-04-11 17:21:28 [INFO]: Connecting to MongoDB...
+2025-04-11 17:21:28 [INFO]: MongoDB Connected
+2025-04-11 17:21:28 [INFO]: Server running on port 8000
+2025-04-11 17:22:04 [INFO]: Connecting to MongoDB...
+2025-04-11 17:22:04 [INFO]: MongoDB Connected
+2025-04-11 17:22:04 [INFO]: Server running on port 8000
+2025-04-11 17:22:07 [INFO]: Connecting to MongoDB...
+2025-04-11 17:22:07 [INFO]: MongoDB Connected
+2025-04-11 17:22:07 [INFO]: Server running on port 8000
+2025-04-11 17:24:53 [INFO]: Connecting to MongoDB...
+2025-04-11 17:24:53 [INFO]: MongoDB Connected
+2025-04-11 17:24:53 [INFO]: Server running on port 8000
+2025-04-11 17:24:57 [INFO]: Connecting to MongoDB...
+2025-04-11 17:24:57 [INFO]: MongoDB Connected
+2025-04-11 17:24:57 [INFO]: Server running on port 8000
+2025-04-11 17:25:10 [INFO]: Connecting to MongoDB...
+2025-04-11 17:25:10 [INFO]: MongoDB Connected
+2025-04-11 17:25:10 [INFO]: Server running on port 8000
+2025-04-11 17:25:16 [INFO]: Connecting to MongoDB...
+2025-04-11 17:25:16 [INFO]: MongoDB Connected
+2025-04-11 17:25:16 [INFO]: Server running on port 8000
+2025-04-11 17:25:18 [INFO]: Connecting to MongoDB...
+2025-04-11 17:25:18 [INFO]: MongoDB Connected
+2025-04-11 17:25:18 [INFO]: Server running on port 8000
+2025-04-11 17:25:25 [INFO]: GET /api/admin/users/trip - ::1
+2025-04-11 17:25:29 [INFO]: GET /api/admin/users/trips - ::1
+2025-04-11 17:25:35 [INFO]: GET /api/admin/trips - ::1
+2025-04-11 17:25:51 [INFO]: GET /api/admin/trips - ::1
+2025-04-11 17:25:52 [INFO]: GET /api/admin/trip - ::1
+2025-04-11 17:27:17 [INFO]: Connecting to MongoDB...
+2025-04-11 17:27:17 [INFO]: MongoDB Connected
+2025-04-11 17:27:17 [INFO]: Server running on port 8000
+2025-04-11 17:27:20 [INFO]: Connecting to MongoDB...
+2025-04-11 17:27:20 [INFO]: MongoDB Connected
+2025-04-11 17:27:20 [INFO]: Server running on port 8000
+2025-04-11 17:27:22 [INFO]: Connecting to MongoDB...
+2025-04-11 17:27:22 [INFO]: MongoDB Connected
+2025-04-11 17:27:22 [INFO]: Server running on port 8000
+2025-04-11 17:27:46 [INFO]: Connecting to MongoDB...
+2025-04-11 17:27:46 [INFO]: MongoDB Connected
+2025-04-11 17:27:46 [INFO]: Server running on port 8000
+2025-04-11 17:27:56 [INFO]: Connecting to MongoDB...
+2025-04-11 17:27:56 [INFO]: MongoDB Connected
+2025-04-11 17:27:56 [INFO]: Server running on port 8000
+2025-04-11 17:28:01 [INFO]: GET /api/admin/trip - ::1
+2025-04-11 17:30:00 [INFO]: Connecting to MongoDB...
+2025-04-11 17:30:00 [INFO]: MongoDB Connected
+2025-04-11 17:30:00 [INFO]: Server running on port 8000
+2025-04-11 17:30:01 [INFO]: Connecting to MongoDB...
+2025-04-11 17:30:01 [INFO]: MongoDB Connected
+2025-04-11 17:30:01 [INFO]: Server running on port 8000
+2025-04-11 17:30:02 [INFO]: Connecting to MongoDB...
+2025-04-11 17:30:02 [INFO]: MongoDB Connected
+2025-04-11 17:30:02 [INFO]: Server running on port 8000
+2025-04-11 17:30:04 [INFO]: Connecting to MongoDB...
+2025-04-11 17:30:05 [INFO]: MongoDB Connected
+2025-04-11 17:30:05 [INFO]: Server running on port 8000
+2025-04-11 17:30:06 [INFO]: Connecting to MongoDB...
+2025-04-11 17:30:06 [INFO]: MongoDB Connected
+2025-04-11 17:30:06 [INFO]: Server running on port 8000
+2025-04-11 17:33:15 [INFO]: Connecting to MongoDB...
+2025-04-11 17:33:15 [INFO]: MongoDB Connected
+2025-04-11 17:33:15 [INFO]: Server running on port 8000
+2025-04-11 17:33:19 [INFO]: GET /api/admin/trip - ::1
+2025-04-11 17:34:00 [INFO]: GET /api/users/trip - ::1
+2025-04-11 17:34:22 [INFO]: GET /api/users/trips - ::1
+2025-04-11 17:34:50 [INFO]: GET /api/user/trips - ::1
+2025-04-11 17:45:10 [INFO]: Connecting to MongoDB...
+2025-04-11 17:45:10 [INFO]: MongoDB Connected
+2025-04-11 17:45:10 [INFO]: Server running on port 8000
+2025-04-11 17:45:16 [INFO]: GET /api/user/trips - ::1
+2025-04-11 17:45:32 [INFO]: Connecting to MongoDB...
+2025-04-11 17:45:32 [INFO]: MongoDB Connected
+2025-04-11 17:45:32 [INFO]: Server running on port 8000
+2025-04-11 17:45:34 [INFO]: GET /api/user/trips - ::1
+2025-04-11 17:47:44 [INFO]: Connecting to MongoDB...
+2025-04-11 17:47:44 [INFO]: MongoDB Connected
+2025-04-11 17:47:44 [INFO]: Server running on port 8000
+2025-04-11 17:47:54 [INFO]: GET /api/user/trip - ::1
+2025-04-11 17:47:57 [INFO]: GET /api/user/trip - ::1
+2025-04-11 17:47:59 [INFO]: GET /api/user/trips - ::1
+2025-04-11 17:48:35 [INFO]: POST /api/operator/trip - ::1
+2025-04-11 17:49:07 [INFO]: POST /api/operator/profi - ::1
+2025-04-11 17:49:10 [INFO]: GET /api/operator/profile - ::1
+2025-04-11 17:50:15 [INFO]: Connecting to MongoDB...
+2025-04-11 17:50:15 [INFO]: MongoDB Connected
+2025-04-11 17:50:15 [INFO]: Server running on port 8000
+2025-04-11 17:50:44 [INFO]: Connecting to MongoDB...
+2025-04-11 17:50:44 [INFO]: MongoDB Connected
+2025-04-11 17:50:44 [INFO]: Server running on port 8000
+2025-04-11 17:50:47 [INFO]: GET /api/operator/profile - ::1
+2025-04-11 17:50:55 [INFO]: Connecting to MongoDB...
+2025-04-11 17:50:55 [INFO]: MongoDB Connected
+2025-04-11 17:50:55 [INFO]: Server running on port 8000
+2025-04-11 17:50:56 [INFO]: Connecting to MongoDB...
+2025-04-11 17:50:56 [INFO]: MongoDB Connected
+2025-04-11 17:50:56 [INFO]: Server running on port 8000
+2025-04-11 17:50:58 [INFO]: Connecting to MongoDB...
+2025-04-11 17:50:58 [INFO]: MongoDB Connected
+2025-04-11 17:50:58 [INFO]: Server running on port 8000
+2025-04-11 17:51:08 [INFO]: Connecting to MongoDB...
+2025-04-11 17:51:08 [INFO]: MongoDB Connected
+2025-04-11 17:51:08 [INFO]: Server running on port 8000
+2025-04-11 17:51:22 [INFO]: Connecting to MongoDB...
+2025-04-11 17:51:22 [INFO]: MongoDB Connected
+2025-04-11 17:51:22 [INFO]: Server running on port 8000
+2025-04-11 17:51:23 [INFO]: Connecting to MongoDB...
+2025-04-11 17:51:23 [INFO]: MongoDB Connected
+2025-04-11 17:51:23 [INFO]: Server running on port 8000
+2025-04-11 17:51:24 [INFO]: Connecting to MongoDB...
+2025-04-11 17:51:24 [INFO]: MongoDB Connected
+2025-04-11 17:51:24 [INFO]: Server running on port 8000
+2025-04-11 17:51:35 [INFO]: Connecting to MongoDB...
+2025-04-11 17:51:35 [INFO]: MongoDB Connected
+2025-04-11 17:51:35 [INFO]: Server running on port 8000
+2025-04-11 17:51:37 [INFO]: Connecting to MongoDB...
+2025-04-11 17:51:37 [INFO]: MongoDB Connected
+2025-04-11 17:51:37 [INFO]: Server running on port 8000
+2025-04-11 17:51:37 [INFO]: GET /api/operator/profile - ::1
+2025-04-11 17:51:51 [INFO]: Connecting to MongoDB...
+2025-04-11 17:51:51 [INFO]: MongoDB Connected
+2025-04-11 17:51:51 [INFO]: Server running on port 8000
+2025-04-11 17:52:43 [INFO]: Connecting to MongoDB...
+2025-04-11 17:52:43 [INFO]: MongoDB Connected
+2025-04-11 17:52:43 [INFO]: Server running on port 8000
+2025-04-11 17:52:50 [INFO]: Connecting to MongoDB...
+2025-04-11 17:52:50 [INFO]: MongoDB Connected
+2025-04-11 17:52:50 [INFO]: Server running on port 8000
+2025-04-11 17:52:51 [INFO]: Connecting to MongoDB...
+2025-04-11 17:52:51 [INFO]: MongoDB Connected
+2025-04-11 17:52:51 [INFO]: Server running on port 8000
+2025-04-11 17:52:52 [INFO]: GET /api/operator/profile - ::1
+2025-04-11 17:54:01 [INFO]: Connecting to MongoDB...
+2025-04-11 17:54:01 [INFO]: MongoDB Connected
+2025-04-11 17:54:01 [INFO]: Server running on port 8000
+2025-04-11 17:54:17 [INFO]: Connecting to MongoDB...
+2025-04-11 17:54:17 [INFO]: MongoDB Connected
+2025-04-11 17:54:17 [INFO]: Server running on port 8000
+2025-04-11 17:54:18 [INFO]: GET /api/operator/profile - ::1
+2025-04-11 17:54:25 [INFO]: Connecting to MongoDB...
+2025-04-11 17:54:25 [INFO]: MongoDB Connected
+2025-04-11 17:54:25 [INFO]: Server running on port 8000
+2025-04-11 17:54:25 [INFO]: GET /api/operator/profile - ::1
+2025-04-11 17:54:32 [INFO]: Connecting to MongoDB...
+2025-04-11 17:54:32 [INFO]: MongoDB Connected
+2025-04-11 17:54:32 [INFO]: Server running on port 8000
+2025-04-11 17:54:32 [INFO]: GET /api/operator/profile - ::1
+2025-04-11 17:54:37 [INFO]: Connecting to MongoDB...
+2025-04-11 17:54:37 [INFO]: MongoDB Connected
+2025-04-11 17:54:37 [INFO]: Server running on port 8000
+2025-04-11 17:54:43 [INFO]: Connecting to MongoDB...
+2025-04-11 17:54:43 [INFO]: MongoDB Connected
+2025-04-11 17:54:43 [INFO]: Server running on port 8000
+2025-04-11 17:54:48 [INFO]: Connecting to MongoDB...
+2025-04-11 17:54:48 [INFO]: MongoDB Connected
+2025-04-11 17:54:48 [INFO]: Server running on port 8000
+2025-04-11 17:54:50 [INFO]: Connecting to MongoDB...
+2025-04-11 17:54:50 [INFO]: MongoDB Connected
+2025-04-11 17:54:50 [INFO]: Server running on port 8000
+2025-04-11 17:54:54 [INFO]: GET /api/operator/profile - ::1
+2025-04-11 17:55:00 [INFO]: GET /api/user/profile - ::1
+2025-04-11 17:55:13 [INFO]: Connecting to MongoDB...
+2025-04-11 17:55:13 [INFO]: MongoDB Connected
+2025-04-11 17:55:13 [INFO]: Server running on port 8000
+2025-04-11 17:55:23 [INFO]: Connecting to MongoDB...
+2025-04-11 17:55:23 [INFO]: MongoDB Connected
+2025-04-11 17:55:23 [INFO]: Server running on port 8000
+2025-04-11 17:56:18 [INFO]: Connecting to MongoDB...
+2025-04-11 17:56:18 [INFO]: MongoDB Connected
+2025-04-11 17:56:18 [INFO]: Server running on port 8000
+2025-04-11 17:56:24 [INFO]: Connecting to MongoDB...
+2025-04-11 17:56:24 [INFO]: MongoDB Connected
+2025-04-11 17:56:24 [INFO]: Server running on port 8000
+2025-04-11 17:56:35 [INFO]: Connecting to MongoDB...
+2025-04-11 17:56:35 [INFO]: MongoDB Connected
+2025-04-11 17:56:35 [INFO]: Server running on port 8000
+2025-04-11 17:56:38 [INFO]: Connecting to MongoDB...
+2025-04-11 17:56:38 [INFO]: MongoDB Connected
+2025-04-11 17:56:38 [INFO]: Server running on port 8000
+2025-04-11 17:56:41 [INFO]: Connecting to MongoDB...
+2025-04-11 17:56:41 [INFO]: MongoDB Connected
+2025-04-11 17:56:41 [INFO]: Server running on port 8000
+2025-04-11 17:56:43 [INFO]: Connecting to MongoDB...
+2025-04-11 17:56:43 [INFO]: MongoDB Connected
+2025-04-11 17:56:43 [INFO]: Server running on port 8000
+2025-04-11 17:56:44 [INFO]: Connecting to MongoDB...
+2025-04-11 17:56:44 [INFO]: MongoDB Connected
+2025-04-11 17:56:44 [INFO]: Server running on port 8000
+2025-04-11 17:56:47 [INFO]: Connecting to MongoDB...
+2025-04-11 17:56:47 [INFO]: MongoDB Connected
+2025-04-11 17:56:47 [INFO]: Server running on port 8000
+2025-04-11 17:56:59 [INFO]: Connecting to MongoDB...
+2025-04-11 17:56:59 [INFO]: MongoDB Connected
+2025-04-11 17:56:59 [INFO]: Server running on port 8000
+2025-04-11 17:57:08 [INFO]: Connecting to MongoDB...
+2025-04-11 17:57:08 [INFO]: MongoDB Connected
+2025-04-11 17:57:08 [INFO]: Server running on port 8000
+2025-04-11 17:57:09 [INFO]: Connecting to MongoDB...
+2025-04-11 17:57:09 [INFO]: MongoDB Connected
+2025-04-11 17:57:09 [INFO]: Server running on port 8000
+2025-04-11 17:57:12 [INFO]: Connecting to MongoDB...
+2025-04-11 17:57:12 [INFO]: MongoDB Connected
+2025-04-11 17:57:12 [INFO]: Server running on port 8000
+2025-04-11 17:57:18 [INFO]: Connecting to MongoDB...
+2025-04-11 17:57:18 [INFO]: MongoDB Connected
+2025-04-11 17:57:18 [INFO]: Server running on port 8000
+2025-04-11 17:57:20 [INFO]: Connecting to MongoDB...
+2025-04-11 17:57:20 [INFO]: MongoDB Connected
+2025-04-11 17:57:20 [INFO]: Server running on port 8000
+2025-04-11 17:57:22 [INFO]: Connecting to MongoDB...
+2025-04-11 17:57:22 [INFO]: MongoDB Connected
+2025-04-11 17:57:22 [INFO]: Server running on port 8000
+2025-04-11 17:57:23 [INFO]: Connecting to MongoDB...
+2025-04-11 17:57:23 [INFO]: MongoDB Connected
+2025-04-11 17:57:23 [INFO]: Server running on port 8000
+2025-04-11 17:57:27 [INFO]: Connecting to MongoDB...
+2025-04-11 17:57:27 [INFO]: MongoDB Connected
+2025-04-11 17:57:27 [INFO]: Server running on port 8000
+2025-04-11 17:58:11 [INFO]: Connecting to MongoDB...
+2025-04-11 17:58:12 [INFO]: MongoDB Connected
+2025-04-11 17:58:12 [INFO]: Server running on port 8000
+2025-04-11 17:58:14 [INFO]: Connecting to MongoDB...
+2025-04-11 17:58:14 [INFO]: MongoDB Connected
+2025-04-11 17:58:14 [INFO]: Server running on port 8000
+2025-04-11 17:58:16 [INFO]: Connecting to MongoDB...
+2025-04-11 17:58:16 [INFO]: MongoDB Connected
+2025-04-11 17:58:16 [INFO]: Server running on port 8000
+2025-04-11 17:58:19 [INFO]: Connecting to MongoDB...
+2025-04-11 17:58:19 [INFO]: MongoDB Connected
+2025-04-11 17:58:19 [INFO]: Server running on port 8000
+2025-04-11 17:58:22 [INFO]: Connecting to MongoDB...
+2025-04-11 17:58:22 [INFO]: MongoDB Connected
+2025-04-11 17:58:22 [INFO]: Server running on port 8000
+2025-04-11 17:58:24 [INFO]: Connecting to MongoDB...
+2025-04-11 17:58:24 [INFO]: MongoDB Connected
+2025-04-11 17:58:24 [INFO]: Server running on port 8000
+2025-04-11 17:58:27 [INFO]: Connecting to MongoDB...
+2025-04-11 17:58:27 [INFO]: MongoDB Connected
+2025-04-11 17:58:27 [INFO]: Server running on port 8000
+2025-04-11 17:58:51 [INFO]: Connecting to MongoDB...
+2025-04-11 17:58:52 [INFO]: MongoDB Connected
+2025-04-11 17:58:52 [INFO]: Server running on port 8000
+2025-04-11 17:58:55 [INFO]: Connecting to MongoDB...
+2025-04-11 17:58:55 [INFO]: MongoDB Connected
+2025-04-11 17:58:55 [INFO]: Server running on port 8000
+2025-04-11 17:58:57 [INFO]: Connecting to MongoDB...
+2025-04-11 17:58:57 [INFO]: MongoDB Connected
+2025-04-11 17:58:57 [INFO]: Server running on port 8000
+2025-04-11 17:59:25 [INFO]: GET /api/user/trip - ::1
+2025-04-11 17:59:28 [INFO]: GET /api/user/trips - ::1
+2025-04-11 18:00:05 [INFO]: GET /api/user/profile - ::1
+2025-04-11 18:00:18 [INFO]: GET /api/user/trip - ::1
+2025-04-11 18:00:20 [INFO]: GET /api/user/trips - ::1
+2025-04-11 18:01:50 [INFO]: POST /api/user/bookl - ::1
+2025-04-11 18:01:53 [INFO]: POST /api/user/book - ::1
+2025-04-11 18:02:03 [INFO]: POST /api/user/trips - ::1
+2025-04-11 18:02:38 [INFO]: GET /api/user/trips - ::1
+2025-04-11 18:02:58 [INFO]: POST /api/user/book - ::1
+2025-04-11 18:03:07 [INFO]: POST /api/user/book - ::1
+2025-04-11 18:03:59 [INFO]: POST /api/user/feedback - ::1
+2025-04-11 18:04:47 [INFO]: Connecting to MongoDB...
+2025-04-11 18:04:47 [INFO]: MongoDB Connected
+2025-04-11 18:04:47 [INFO]: Server running on port 8000
+2025-04-11 18:04:57 [INFO]: POST /api/user/feedback/ - ::1
+2025-04-11 18:05:10 [INFO]: Connecting to MongoDB...
+2025-04-11 18:05:10 [INFO]: MongoDB Connected
+2025-04-11 18:05:10 [INFO]: Server running on port 8000
+2025-04-11 18:05:12 [INFO]: POST /api/user/feedback - ::1
+2025-04-11 18:05:41 [INFO]: Connecting to MongoDB...
+2025-04-11 18:05:41 [INFO]: MongoDB Connected
+2025-04-11 18:05:41 [INFO]: Server running on port 8000
+2025-04-11 18:05:44 [INFO]: POST /api/user/feedback%20 - ::1
+2025-04-11 18:05:52 [INFO]: Connecting to MongoDB...
+2025-04-11 18:05:52 [INFO]: MongoDB Connected
+2025-04-11 18:05:52 [INFO]: Server running on port 8000
+2025-04-11 18:05:52 [INFO]: POST /api/user/feedback - ::1
+2025-04-11 18:06:46 [INFO]: POST /api/user/feedback - ::1
+2025-04-11 18:06:56 [INFO]: POST /api/user/feedback - ::1
+2025-04-11 18:07:30 [INFO]: POST /api/operator/trip - ::1
+2025-04-11 18:07:40 [INFO]: PUT /api/operator/trip - ::1
+2025-04-11 18:08:03 [INFO]: POST /api/operator/trip - ::1
+2025-04-11 18:08:19 [INFO]: PUT /api/operator/trip/67f90d2b1265aa0db7ba8884 - ::1
+2025-04-11 18:08:33 [INFO]: DELETE /api/operator/trip/67f90d2b1265aa0db7ba8884 - ::1
+2025-04-11 18:08:39 [INFO]: DELETE /api/operator/trip - ::1
+2025-04-11 18:08:41 [INFO]: DELETE /api/operator/trips - ::1
+2025-04-11 18:08:45 [INFO]: GET /api/operator/trips - ::1
+2025-04-11 18:08:46 [INFO]: GET /api/operator/trip - ::1
+2025-04-11 18:08:59 [INFO]: Connecting to MongoDB...
+2025-04-11 18:08:59 [INFO]: MongoDB Connected
+2025-04-11 18:08:59 [INFO]: Server running on port 8000
+2025-04-11 18:09:01 [INFO]: Connecting to MongoDB...
+2025-04-11 18:09:01 [INFO]: MongoDB Connected
+2025-04-11 18:09:01 [INFO]: Server running on port 8000
+2025-04-11 18:09:56 [INFO]: Connecting to MongoDB...
+2025-04-11 18:09:56 [INFO]: MongoDB Connected
+2025-04-11 18:09:56 [INFO]: Server running on port 8000
+2025-04-11 18:09:59 [INFO]: Connecting to MongoDB...
+2025-04-11 18:09:59 [INFO]: MongoDB Connected
+2025-04-11 18:09:59 [INFO]: Server running on port 8000
+2025-04-11 18:10:30 [INFO]: Connecting to MongoDB...
+2025-04-11 18:10:30 [INFO]: MongoDB Connected
+2025-04-11 18:10:30 [INFO]: Server running on port 8000
+2025-04-11 18:10:40 [INFO]: Connecting to MongoDB...
+2025-04-11 18:10:40 [INFO]: MongoDB Connected
+2025-04-11 18:10:40 [INFO]: Server running on port 8000
+2025-04-11 18:10:44 [INFO]: Connecting to MongoDB...
+2025-04-11 18:10:44 [INFO]: MongoDB Connected
+2025-04-11 18:10:44 [INFO]: Server running on port 8000
+2025-04-11 18:11:01 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:01 [INFO]: MongoDB Connected
+2025-04-11 18:11:01 [INFO]: Server running on port 8000
+2025-04-11 18:11:04 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:04 [INFO]: MongoDB Connected
+2025-04-11 18:11:04 [INFO]: Server running on port 8000
+2025-04-11 18:11:07 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:07 [INFO]: MongoDB Connected
+2025-04-11 18:11:07 [INFO]: Server running on port 8000
+2025-04-11 18:11:08 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:08 [INFO]: MongoDB Connected
+2025-04-11 18:11:08 [INFO]: Server running on port 8000
+2025-04-11 18:11:10 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:10 [INFO]: MongoDB Connected
+2025-04-11 18:11:10 [INFO]: Server running on port 8000
+2025-04-11 18:11:14 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:14 [INFO]: MongoDB Connected
+2025-04-11 18:11:14 [INFO]: Server running on port 8000
+2025-04-11 18:11:15 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:15 [INFO]: MongoDB Connected
+2025-04-11 18:11:15 [INFO]: Server running on port 8000
+2025-04-11 18:11:35 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:35 [INFO]: MongoDB Connected
+2025-04-11 18:11:35 [INFO]: Server running on port 8000
+2025-04-11 18:11:38 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:38 [INFO]: MongoDB Connected
+2025-04-11 18:11:38 [INFO]: Server running on port 8000
+2025-04-11 18:11:41 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:41 [INFO]: MongoDB Connected
+2025-04-11 18:11:41 [INFO]: Server running on port 8000
+2025-04-11 18:11:51 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:51 [INFO]: MongoDB Connected
+2025-04-11 18:11:51 [INFO]: Server running on port 8000
+2025-04-11 18:11:54 [INFO]: Connecting to MongoDB...
+2025-04-11 18:11:54 [INFO]: MongoDB Connected
+2025-04-11 18:11:54 [INFO]: Server running on port 8000
+2025-04-11 18:12:01 [INFO]: Connecting to MongoDB...
+2025-04-11 18:12:01 [INFO]: MongoDB Connected
+2025-04-11 18:12:01 [INFO]: Server running on port 8000
+2025-04-11 18:12:07 [INFO]: Connecting to MongoDB...
+2025-04-11 18:12:07 [INFO]: MongoDB Connected
+2025-04-11 18:12:07 [INFO]: Server running on port 8000
+2025-04-11 18:12:09 [INFO]: Connecting to MongoDB...
+2025-04-11 18:12:09 [INFO]: MongoDB Connected
+2025-04-11 18:12:09 [INFO]: Server running on port 8000
+2025-04-11 18:12:15 [INFO]: Connecting to MongoDB...
+2025-04-11 18:12:15 [INFO]: MongoDB Connected
+2025-04-11 18:12:15 [INFO]: Server running on port 8000
+2025-04-11 18:12:19 [INFO]: Connecting to MongoDB...
+2025-04-11 18:12:19 [INFO]: MongoDB Connected
+2025-04-11 18:12:19 [INFO]: Server running on port 8000
+2025-04-11 18:12:21 [INFO]: Connecting to MongoDB...
+2025-04-11 18:12:21 [INFO]: MongoDB Connected
+2025-04-11 18:12:21 [INFO]: Server running on port 8000
+2025-04-11 18:12:27 [INFO]: Connecting to MongoDB...
+2025-04-11 18:12:27 [INFO]: MongoDB Connected
+2025-04-11 18:12:27 [INFO]: Server running on port 8000
+2025-04-11 18:12:30 [INFO]: Connecting to MongoDB...
+2025-04-11 18:12:30 [INFO]: MongoDB Connected
+2025-04-11 18:12:30 [INFO]: Server running on port 8000
+2025-04-11 18:12:33 [INFO]: Connecting to MongoDB...
+2025-04-11 18:12:33 [INFO]: MongoDB Connected
+2025-04-11 18:12:33 [INFO]: Server running on port 8000
+2025-04-11 18:12:54 [ERROR]: Error: Expected double-quoted property name in JSON at position 47 (line 4 column 1)
+2025-04-11 18:13:00 [ERROR]: Error: Expected double-quoted property name in JSON at position 47 (line 4 column 1)
+2025-04-11 18:13:05 [INFO]: GET /api/user/trip - ::1
+2025-04-11 18:15:50 [INFO]: GET /api/user/trip - ::1
+2025-04-11 18:16:03 [INFO]: GET /api/user/histo - ::1
+2025-04-11 18:16:06 [INFO]: GET /api/user/history - ::1
+2025-04-11 18:21:11 [INFO]: GET /api/user/profile - ::1
+2025-04-11 18:21:18 [INFO]: GET /api/user/users - ::1
+2025-04-11 18:21:27 [INFO]: GET /api/admin/users - ::1
+2025-04-11 18:21:41 [INFO]: GET /api/admin/profile - ::1
+2025-04-11 18:22:27 [INFO]: Connecting to MongoDB...
+2025-04-11 18:22:27 [INFO]: MongoDB Connected
+2025-04-11 18:22:27 [INFO]: Server running on port 8000
+2025-04-11 18:23:21 [INFO]: Connecting to MongoDB...
+2025-04-11 18:23:21 [INFO]: MongoDB Connected
+2025-04-11 18:23:21 [INFO]: Server running on port 8000
+2025-04-11 18:23:26 [INFO]: GET /api/admin/analytics - ::1
+2025-04-11 18:23:41 [INFO]: Connecting to MongoDB...
+2025-04-11 18:23:41 [INFO]: MongoDB Connected
+2025-04-11 18:23:41 [INFO]: Server running on port 8000
+2025-04-11 18:23:42 [INFO]: Connecting to MongoDB...
+2025-04-11 18:23:42 [INFO]: MongoDB Connected
+2025-04-11 18:23:42 [INFO]: Server running on port 8000
+2025-04-11 18:23:44 [INFO]: Connecting to MongoDB...
+2025-04-11 18:23:44 [INFO]: MongoDB Connected
+2025-04-11 18:23:44 [INFO]: Server running on port 8000
+2025-04-11 18:23:45 [INFO]: Connecting to MongoDB...
+2025-04-11 18:23:45 [INFO]: MongoDB Connected
+2025-04-11 18:23:45 [INFO]: Server running on port 8000
+2025-04-11 18:23:49 [INFO]: Connecting to MongoDB...
+2025-04-11 18:23:49 [INFO]: MongoDB Connected
+2025-04-11 18:23:49 [INFO]: Server running on port 8000
+2025-04-11 18:24:31 [INFO]: Connecting to MongoDB...
+2025-04-11 18:24:31 [INFO]: MongoDB Connected
+2025-04-11 18:24:31 [INFO]: Server running on port 8000
+2025-04-11 18:24:32 [INFO]: Connecting to MongoDB...
+2025-04-11 18:24:32 [INFO]: MongoDB Connected
+2025-04-11 18:24:32 [INFO]: Server running on port 8000
+2025-04-11 18:24:37 [INFO]: Connecting to MongoDB...
+2025-04-11 18:24:37 [INFO]: MongoDB Connected
+2025-04-11 18:24:37 [INFO]: Server running on port 8000
+2025-04-11 18:25:10 [INFO]: Connecting to MongoDB...
+2025-04-11 18:25:10 [INFO]: MongoDB Connected
+2025-04-11 18:25:10 [INFO]: Server running on port 8000
+2025-04-11 18:25:16 [INFO]: GET /api/admin/profile - ::1

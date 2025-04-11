@@ -36,6 +36,19 @@ class BusService {
             return { status: 500, success: false, message: "Error deleting bus", error: error.message };
         }
     }
+
+    async getBus(operator_id){
+        try{
+            const buses = Bus.find(operator_id)
+            return { status: 200, success: true, message: "Bus retrived successfully" ,bus:buses};
+            
+        }
+        catch(error)
+        {
+            return { status: 500, success: false, message: "Error getting  buses", error: error.message };
+
+        }
+    }
 }
 
 export default BusService;

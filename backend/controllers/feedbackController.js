@@ -1,8 +1,6 @@
-
+import FeedbackService from "../services/feedbackService.js";
+const feedbackService = new FeedbackService();
 class FeedbackController {
-  constructor() {
-    this.feedbackService = new FeedbackService();
-  }
 
 
   async createFeedback(req, res) {
@@ -10,7 +8,7 @@ class FeedbackController {
       const user_id = req.user._id; 
       const feedbackData = req.body;
 
-      const result = await this.feedbackService.createFeedback(feedbackData, user_id);
+      const result = await feedbackService.createFeedback(feedbackData, user_id);
       return res.status(result.status).json(result);
     } catch (error) {
       return res.status(500).json({
@@ -28,7 +26,7 @@ class FeedbackController {
       const feedback_id = req.params.id;
       const feedbackData = req.body;
 
-      const result = await this.feedbackService.editFeedback(feedback_id, feedbackData);
+      const result = await feedbackService.editFeedback(feedback_id, feedbackData);
       return res.status(result.status).json(result);
     } catch (error) {
       return res.status(500).json({
@@ -41,4 +39,4 @@ class FeedbackController {
   }
 }
 
-export default FeedbackController;
+export default new FeedbackController();

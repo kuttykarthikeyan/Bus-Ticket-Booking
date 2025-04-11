@@ -1,13 +1,13 @@
-import AdminService from "../services/adminService.js";
 import BaseTripService from "../services/tripServices/baseTripService.js";
 import OperatorTripService from "../services/tripServices/operatorTripService.js";
 import { handleError } from "../utils/authUtils.js";
 import mongoose from "mongoose";
 
+const operatorTripService = new OperatorTripService();
+const baseTripService = new BaseTripService();
 class TripController {
   constructor() {
-    this.operatorTripService = new OperatorTripService();
-    this.baseTripService = new BaseTripService();
+   
   }
 
   async createTrip(req, res) {
@@ -22,7 +22,7 @@ class TripController {
       const tripData = req.body;
       tripData.operator_id = operator_id;
 
-      const result = await this.operatorTripService.createTrip(tripData, operator_id);
+      const result = await operatorTripService.createTrip(tripData, operator_id);
       return res.status(result.status).json(result);
     } catch (error) {
       return handleError(res, error, "Error creating trip");
@@ -38,7 +38,7 @@ class TripController {
         return res.status(400).json({ success: false, message: "Invalid Trip ID" });
       }
 
-      const result = await this.operatorTripService.deleteTrip(trip_id, operator_id);
+      const result = await operatorTripService.deleteTrip(trip_id, operator_id);
       return res.status(result.status).json(result);
     } catch (error) {
       return handleError(res, error, "Error deleting trip");
@@ -54,7 +54,7 @@ class TripController {
         return res.status(400).json({ success: false, message: "Invalid Trip ID" });
       }
 
-      const result = await this.operatorTripService.updateTrip(trip_id, tripData);
+      const result = await operatorTripService.updateTrip(trip_id, tripData);
       return res.status(result.status).json(result);
     } catch (error) {
       return handleError(res, error, "Error updating trip");
@@ -73,7 +73,7 @@ class TripController {
         return res.status(400).json({ success: false, message: "Trip ID is missing" });
       }
 
-      const result = await this.operatorTripService.cancelTrip(trip_id, operator_id);
+      const result = await operatorTripService.cancelTrip(trip_id, operator_id);
       return res.status(result.status).json(result);
     } catch (error) {
       return res.status(500).json({
@@ -83,16 +83,6 @@ class TripController {
       });
     }
   }
-
-  async getAllTrips(req, res) {
-    try {
-      const result = await this.baseTripService.getAllTrips();
-      return res.status(result.status).json(result);
-    } catch (error) {
-      return handleError(res, error, "Error fetching trips");
-    }
-  }
-
   async getTripById(req, res) {
     try {
       const { trip_id } = req.params;
@@ -101,7 +91,7 @@ class TripController {
         return res.status(400).json({ success: false, message: "Invalid Trip ID" });
       }
 
-      const result = await this.baseTripService.getTripById(trip_id);
+      const result = await baseTripService.getTripById(trip_id);
       return res.status(result.status).json(result);
     } catch (error) {
       return handleError(res, error, "Error fetching trip details");
@@ -111,12 +101,23 @@ class TripController {
   async getTripByFilter(req, res) {
     try {
       const Filter = req.body;
-      const result = await this.baseTripService.getTripByFilter(Filter);
+      const result = await baseTripService.getTripByFilter(Filter);
       return res.status(result.status).json(result);
     } catch (error) {
       return handleError(res, error, "Error in Filtering trips");
     }
   }
+  async getAllTrips( req,res) {
+          try {
+              const response = await operatorTripService.getAllTrips();
+              return res.status(response.status).json(response);
+          } catch (error) {
+              return handleError(res, error, "Error fetching trips");
+          }
+      }
+  
+  
+  
 }
 
 export default new TripController();

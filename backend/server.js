@@ -5,6 +5,7 @@ import { logger, requestLogger, errorHandler } from './services/loggingService.j
 import userRoutes from './routes/userRoutes.js';
 import operatorRoutes from './routes/operatorRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import feedbackRoutes from './routes/feedbackRoutes.js';
 const app = express();
 const PORT = 8000;
 
@@ -12,9 +13,10 @@ app.use(cors());
 app.use(express.json());
 app.use(requestLogger); 
 
-app.use('/user', userRoutes);
-app.use('/operator', operatorRoutes);
-app.use('/admin',adminRoutes)
+app.use('/api/user', userRoutes);
+app.use('/api/operator', operatorRoutes);
+app.use('/api/admin',adminRoutes)
+app.use('/api/user/feedback',feedbackRoutes)
 
 app.get('/', (req, res) => {
     logger.info('Root endpoint accessed');

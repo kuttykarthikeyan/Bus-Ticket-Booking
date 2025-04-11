@@ -1,5 +1,5 @@
-import Feedback from "../models/feedbackModel";
-import Booking from "../models/bookingModel";
+import Feedback from "../models/feedbackModel.js";
+import Booking from "../models/bookingModel.js";
 
 
 class FeedbackService {
@@ -34,44 +34,30 @@ class FeedbackService {
       };
     }
   }
-  async editFeedback(feedback_id, feedbackData) {
-    try {
-      const { rating, comment } = feedbackData;
-  
-      const updatedFields = {};
-      if (rating !== undefined) updatedFields.rating = rating;
-      if (comment !== undefined) updatedFields.comment = comment;
-  
-      const updatedFeedback = await Feedback.findByIdAndUpdate(
-        feedback_id,
-        { $set: updatedFields },
-        { new: true, runValidators: true }
-      );
-  
-      if (!updatedFeedback) {
-        return {
-          status: 404,
-          success: false,
-          message: "Feedback not found",
-        };
+    async getFeedback(trip_id)
+    {
+      try{
+         const feedbacks= Feedback.find(trip_id);
+         if(!feedbacks){
+          return {
+            status: 200,
+            success: false,
+            message: "None feedback",
+          };
+         }
+         return { status: 200, success: true, data: feedbacks };
+
       }
-  
-      return {
-        status: 200,
-        success: true,
-        message: "Feedback updated successfully",
-        data: updatedFeedback,
-      };
-    } catch (error) {
-      console.error("Edit Feedback Error:", error);
-      return {
+      catch(error)
+      {return {
         status: 500,
         success: false,
-        message: "Failed to update feedback",
+        message: "Error in getting  feedback",
         error: error.message,
       };
+
+      }
     }
-  }
   
 }
 

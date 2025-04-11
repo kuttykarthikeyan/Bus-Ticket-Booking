@@ -34,7 +34,7 @@ class AdminController {
         }
     }
 
-    static async getAllTrips(req, res) {
+    static async getAllTrips( req,res) {
         try {
             const response = await adminService.getAllTrips();
             return res.status(response.status).json(response);
