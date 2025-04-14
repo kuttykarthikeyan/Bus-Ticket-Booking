@@ -51,7 +51,6 @@ async getTripByFilter(filter = {}) {
       data: filteredTrips
     };
   } catch (error) {
-    console.error("Error in getTripByFilter:", error);
     return {
       status: 500,
       success: false,
