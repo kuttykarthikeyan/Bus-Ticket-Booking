@@ -16,11 +16,8 @@ operatorRouter.get("/profile", ProfileController.getOperatorProfile);
 
 operatorRouter.put("/profile", ProfileController.updateOperatorProfile);
 
-operatorRouter.post("/bus", BusController.createBus);
+operatorRouter.get("/history", ProfileController.getOperatorHistory);
 
-operatorRouter.put("/bus/:bus_id", BusController.updateBus);
-
-operatorRouter.delete("/bus/:bus_id", BusController.deleteBus);
 
 operatorRouter.post("/trip", TripController.createTrip);
 

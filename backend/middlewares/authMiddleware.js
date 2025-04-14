@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
+import dotenv from "dotenv";
+dotenv.config(); 
 
 const authMiddleware = async (req, res, next) => {
     try {
@@ -12,8 +14,8 @@ const authMiddleware = async (req, res, next) => {
                 message: "Unauthorized: No token provided"
             });
         }
-
-        const decoded = jwt.verify(token, "mysecretkey");
+     
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const user = await User.findById(decoded.id).select("-password");
 
         if (!user) {

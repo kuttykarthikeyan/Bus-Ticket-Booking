@@ -6,6 +6,7 @@ import userRoutes from './routes/userRoutes.js';
 import operatorRoutes from './routes/operatorRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import feedbackRoutes from './routes/feedbackRoutes.js';
+import busRoutes from './routes/busRoutes.js';
 const app = express();
 const PORT = 8000;
 
@@ -16,7 +17,11 @@ app.use(requestLogger);
 app.use('/api/user', userRoutes);
 app.use('/api/operator', operatorRoutes);
 app.use('/api/admin',adminRoutes)
+app.use('/api/operator/bus', busRoutes);
 app.use('/api/user/feedback',feedbackRoutes)
+app.get('/',(req,res)=>{
+    res.send("Bus Booking App Server")
+})
 
 app.get('/', (req, res) => {
     logger.info('Root endpoint accessed');

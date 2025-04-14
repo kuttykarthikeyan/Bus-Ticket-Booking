@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Bus from "../models/busModel.js";
 
 class BusService {
@@ -37,18 +38,18 @@ class BusService {
         }
     }
 
-    async getBus(operator_id){
-        try{
-            const buses = Bus.find(operator_id)
-            return { status: 200, success: true, message: "Bus retrived successfully" ,bus:buses};
-            
+    async  getBus(operator_id) {
+        try {
+          
+      
+         
+          const buses = await Bus.find({ operator_id });
+      
+          return { status: 200, success: true, message: "Buses retrieved successfully", bus: buses };
+        } catch (error) {
+          return { status: 500, success: false, message: "Error retrieving buses", error: error.message };
         }
-        catch(error)
-        {
-            return { status: 500, success: false, message: "Error getting  buses", error: error.message };
-
-        }
-    }
+      }
 }
 
 export default BusService;

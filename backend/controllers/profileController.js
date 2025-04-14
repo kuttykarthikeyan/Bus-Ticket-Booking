@@ -1,8 +1,8 @@
 import ProfileService from '../services/profileService.js';
 import { handleError } from "../utils/authUtils.js";
-const profileService = new ProfileService()
+const profileService = new ProfileService();
+
 class ProfileController {
- 
   async getUserProfile(req, res) {
     try {
       const user_id = req.user._id;
@@ -42,6 +42,28 @@ class ProfileController {
       return res.status(result.status).json(result);
     } catch (error) {
       return handleError(res, error, "Error updating user profile");
+    }
+  }
+
+  // New method to get the user's trip history (booked and canceled trips)
+  async getUserHistory(req, res) {
+    try {
+      const user_id = req.user._id;
+      const result = await profileService.getUserHistory(user_id);
+      return res.status(result.status).json(result);
+    } catch (error) {
+      return handleError(res, error, "Error retrieving user trip history");
+    }
+  }
+
+  // New method to get the operator's bus history (buses they created)
+  async getOperatorHistory(req, res) {
+    try {
+      const operator_id = req.user._id;
+      const result = await profileService.getOperatorHistory(operator_id);
+      return res.status(result.status).json(result);
+    } catch (error) {
+      return handleError(res, error, "Error retrieving operator bus history");
     }
   }
 }

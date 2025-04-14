@@ -52,12 +52,13 @@ class BusController {
   }
   async getBus(req,res)
   {
- 
  try
-    {  const {_id}=req.user
-     const result =await busService.getBus(_id);
+    {  
+      const operator_id=req.user._id
+      console.log(operator_id);
+     const result =await busService.getBus(operator_id);
      return res.status(result.status).json(result)
-}
+     }
 catch(error)
 {
   return handleError(res, error, "Error in retriving  bus");

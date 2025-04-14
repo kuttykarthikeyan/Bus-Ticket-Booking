@@ -20,6 +20,9 @@ userRouter.get("/profile", ProfileController.getUserProfile);
 
 userRouter.put("/profile", ProfileController.updateUserProfile);
 
+userRouter.get("/history", ProfileController.getUserHistory);
+
+
 userRouter.post("/trip", TripController.getTripByFilter);
 
 userRouter.get("/trip", TripController.getAllTrips);

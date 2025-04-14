@@ -1,8 +1,9 @@
 import User from "../models/userModel.js";
 import Operator from "../models/operatorModel.js";
+import Bus from "../models/busModel.js"; 
+import Booking from "../models/bookingModel.js";
 
 class ProfileService {
-   
     async handleDatabaseOperation(operation, successMessage, errorMessage) {
         try {
             const result = await operation();
@@ -43,6 +44,37 @@ class ProfileService {
             () => User.findByIdAndUpdate(user_id, { $set: userData }, { new: true, runValidators: true }),
             "User profile updated successfully",
             "Error updating user profile"
+        );
+    }
+
+    async getUserHistory(user_id) {
+        return this.handleDatabaseOperation(
+            async () => {
+                const bookings = await Booking.find({ user_id: user_id }).populate('trip_id'); // Populate trip details
+
+                const bookedTrips = bookings.filter(booking => booking.booking_status === "confirmed");
+                const canceledTrips = bookings.filter(booking => booking.booking_status === "cancelled");
+
+                return {
+                    bookedTrips,
+                    canceledTrips
+                };
+            },
+            "User trip history retrieved successfully",
+            "Error retrieving user trip history"
+        );
+    }
+
+    async getOperatorHistory(operator_id) {
+        return this.handleDatabaseOperation(
+            async () => {
+                const buses = await Bus.find({ operator_id: operator_id }); 
+                return {
+                    createdBuses: buses
+                };
+            },
+            "Operator bus history retrieved successfully",
+            "Error retrieving operator bus history"
         );
     }
 }
