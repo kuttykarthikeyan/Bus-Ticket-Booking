@@ -20,6 +20,7 @@ class AuthController {
     static async handleLogin(service, req, res, userType) {
         try {
             const { email, password } = req.body;
+
             const result = await service.login(email, password);
 
             if (!result.success) {
