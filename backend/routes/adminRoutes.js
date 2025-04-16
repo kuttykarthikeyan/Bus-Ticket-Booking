@@ -19,6 +19,7 @@ adminRouter.delete("/trip/:tripId", AdminController.deleteTrip);
 adminRouter.get("/trip", AdminController.getAllTrips);
 adminRouter.get("/trip/:tripId", AdminController.getTripById);
 adminRouter.put("/canceltrip/:tripId", AdminController.cancelTrip);
+
 adminRouter.post("/trip", TripController.getTripByFilter);
 
 adminRouter.get("/users", AdminController.getAllUsers);
