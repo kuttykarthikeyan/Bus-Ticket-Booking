@@ -5,8 +5,7 @@ import User from "../models/userModel.js";
 import { handleError } from "../utils/authUtils.js";
 
 const operatorAuthService = new OperatorAuthService(Operator);
-const userAuthService = new UserAuthService(User);
-
+const userAuthService = new UserAuthService(User)
 class AuthController {
     
     static async handleRegistration(service, req, res, userType) {
