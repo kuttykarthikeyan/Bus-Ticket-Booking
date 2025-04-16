@@ -1,4 +1,4 @@
-import BaseTripService from '../services/tripServices/BaseTripService';
+import BaseTripService from '../services/tripServices/BaseTripService.js';
 import Trip from '../models/tripModel';
 import mongoose from 'mongoose';
 
