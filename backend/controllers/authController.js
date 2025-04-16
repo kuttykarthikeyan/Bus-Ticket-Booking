@@ -11,6 +11,7 @@ class AuthController {
     static async handleRegistration(service, req, res, userType) {
         try {
             const result = await service.register(req.body);
+            
             return res.status(result.status).json(result);
         } catch (error) {
             return handleError(res, error, `Error during ${userType} registration`);
