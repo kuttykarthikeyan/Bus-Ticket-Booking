@@ -7,13 +7,16 @@ class BusController {
   async createBus(req, res) {
     try {
       const operator_id = req.user._id;
+    
       const busData = req.body;
 
       if (!operator_id) {
+        console.log(operator_id)
         return res.status(400).json({ success: false, message: "Operator ID is required" });
       }
 
       const result = await busService.createBus(busData, operator_id);
+      
       return res.status(result.status).json(result);
     } catch (error) {
       return handleError(res, error, "Error creating bus");
