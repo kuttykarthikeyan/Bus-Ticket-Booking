@@ -8,7 +8,6 @@ class BusController {
     try {
       const operator_id = req.user._id;
       const busData = req.body;
-
       if (!operator_id) {
         return res.status(400).json({ success: false, message: "Operator ID is required" });
       }
@@ -24,7 +23,7 @@ class BusController {
     try {
       const { bus_id } = req.params;
       const busData = req.body;
-
+      console.log(1);
       if (!mongoose.Types.ObjectId.isValid(bus_id)) {
         return res.status(400).json({ success: false, message: "Invalid Bus ID" });
       }
