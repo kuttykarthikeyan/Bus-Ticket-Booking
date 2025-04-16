@@ -12,6 +12,7 @@ class BookingService {
                 !trip.available_seats.includes(seat) && !trip.booked_seats.includes(seat)
             );
             if (invalidSeats.length > 0) {
+                console.log(1)
                 return { status: 400, success: false, message: `Invalid seat numbers: ${invalidSeats.join(", ")}` };
             }
 
