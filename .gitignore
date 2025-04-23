@@ -1,6 +1,7 @@
 backend/node_modules
 backend/.babelrc
-backend/.env
+backend/.env.dev
+backend/.env.prd
 backend/jest.config.js
 backend/logs
 backend/coverage
