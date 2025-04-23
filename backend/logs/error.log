@@ -1,3 +1,6 @@
 2025-04-11 18:12:54 [ERROR]: Error: Expected double-quoted property name in JSON at position 47 (line 4 column 1)
 2025-04-11 18:13:00 [ERROR]: Error: Expected double-quoted property name in JSON at position 47 (line 4 column 1)
 2025-04-12 19:45:32 [ERROR]: Error: Expected double-quoted property name in JSON at position 156 (line 8 column 1)
+2025-04-15 08:28:25 [ERROR]: MongoDB Connection Failed: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+2025-04-23 15:27:28 [ERROR]: MongoDB Connection Failed: getaddrinfo ENOTFOUND host.docker.internal
+2025-04-23 15:28:40 [ERROR]: MongoDB Connection Failed: getaddrinfo ENOTFOUND host.docker.internal

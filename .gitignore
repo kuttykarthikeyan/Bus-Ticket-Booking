@@ -3,4 +3,4 @@ backend/.babelrc
 backend/.env
 backend/jest.config.js
 backend/logs
-/backend/coverage
+backend/coverage
