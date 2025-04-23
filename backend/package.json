@@ -7,7 +7,9 @@
   "scripts": {
     "type": "module",
     "test": "jest --coverage",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "docker:dev": "docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build",
+    "docker:prod": "docker-compose up --build -d"
   },
   "keywords": [],
   "author": "",

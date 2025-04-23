@@ -125,7 +125,7 @@ class AdminService {
               operators: {
                 total: totalOperators,
                 active: activeOperators,
-                tripsPerOperator: tripsPerOperator // Just operator ID and count
+                tripsPerOperator: tripsPerOperator 
               },
               trips: {
                 total: totalTrips,
